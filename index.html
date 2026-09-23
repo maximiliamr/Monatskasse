@@ -263,8 +263,9 @@
   .mk-tabs .on { color: #0a84ff; background: rgba(10, 132, 255, 0.14); font-weight: 600; }
   .mk-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .mk-tile { background: var(--mk-row); border-radius: 13px; padding: 10px; min-height: 58px; font-size: 0.8rem; font-weight: 600; position: relative; }
-  .mk-tile.no { opacity: 0.6; }
-  .mk-tile.no::after { content: "✕"; position: absolute; top: -7px; right: -7px; width: 20px; height: 20px; border-radius: 50%; background: #ef4444; color: #fff; display: grid; place-items: center; font-size: 0.7rem; }
+  .mk-tile.no, .mk-row.no { opacity: 0.6; position: relative; }
+  .mk-row.no { margin-top: 6px; }
+  .mk-tile.no::after, .mk-row.no::after { content: "✕"; position: absolute; top: -7px; right: -7px; width: 20px; height: 20px; border-radius: 50%; background: #ef4444; color: #fff; display: grid; place-items: center; font-size: 0.7rem; }
   .mk-var { display: inline-block; background: #0a84ff; color: #fff; border-radius: 6px; padding: 0 6px; font-weight: 600; }
   .mk-app { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; background: #f8c94a; color: #8a5a12; font-size: 0.8rem; flex: none; }
   .mk-sentence { background: var(--mk-row); border-radius: 11px; padding: 9px 11px; line-height: 1.9; }
@@ -596,10 +597,11 @@
       <div class="gstep">
         <h3>Neuen Kurzbefehl erstellen</h3>
         <p>Tippe unter „Los gehts“ auf „Neuen Kurzbefehl erstellen“.</p>
-        <p class="warn">Nicht direkt auf „Ausgabe erfassen“ tippen: Dann legt iOS die Automation ohne verbundene Felder an, und sie kann den Betrag nicht übernehmen.</p>
+        <p class="warn">Nicht weiter unten auf „Monatskasse“ oder „Neue Ausgabe“ tippen: Dann legt iOS die Automation ohne verbundene Felder an, und sie kann den Betrag nicht übernehmen.</p>
         <div class="mk" aria-hidden="true">
           <b>Los gehts</b>
-          <div class="mk-tiles"><div class="mk-tile hint">Neuen Kurzbefehl erstellen</div><div class="mk-tile no">Ausgabe erfassen</div></div>
+          <div class="mk-tiles"><div class="mk-tile hint">Neuen Kurzbefehl erstellen</div></div>
+          <div class="mk-row no"><span class="mk-app">€</span><span>Monatskasse<small>Neue Ausgabe, Monatsstand</small></span></div>
         </div>
       </div>
 
@@ -624,7 +626,7 @@
         <h3>Fertig</h3>
         <p>Tippe oben rechts auf ✓. Bezahlst du das nächste Mal mit dem iPhone an der Kasse, erscheint die Zahlung in Monatskasse unter „Zu prüfen“.</p>
         <div class="mk" aria-hidden="true">
-          <div class="mk-row"><span><b>1 Zahlung zu prüfen</b><small>Migros · 23,40 €</small></span></div>
+          <div class="mk-row"><span><b>1 Zahlung zu prüfen</b><small>Supermarkt · 23,40 €</small></span></div>
         </div>
       </div>
 
@@ -660,7 +662,7 @@
         <summary>Wie werden Zahlungen mit Apple Pay automatisch erfasst?</summary>
         <div>
           <p>Mit einer Automation, die du einmal in der Kurzbefehle-App anlegst. Die Schritte stehen oben unter <a href="#apple-pay">Apple Pay einrichten</a>; in der App führt dich <em>Verwalten → Apple Pay automatisch erfassen</em> durch dieselben Schritte.</p>
-          <p>Wichtig ist Schritt 4: „Neuen Kurzbefehl erstellen“ wählen und nicht direkt „Ausgabe erfassen“ – sonst fehlen die verbundenen Felder.</p>
+          <p>Wichtig ist Schritt 4: „Neuen Kurzbefehl erstellen“ wählen und nicht weiter unten „Monatskasse“ – sonst fehlen die verbundenen Felder.</p>
         </div>
       </details>
 
