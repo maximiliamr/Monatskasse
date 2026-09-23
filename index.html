@@ -236,9 +236,40 @@
   .faq details[open] summary::after { transform: translateY(-25%) rotate(-135deg); }
   .faq details > div { padding: 0 0 20px; color: var(--muted); }
   .faq p { margin: 0 0 10px; }
-  .faq p:last-child, .faq ol:last-child { margin-bottom: 0; }
-  .faq ol { padding-left: 1.3em; margin: 0 0 10px; }
+  .faq p:last-child, .faq ol:last-child, .faq ul:last-child { margin-bottom: 0; }
+  .faq ol, .faq ul { padding-left: 1.3em; margin: 0 0 10px; }
   .faq li { margin-bottom: 6px; }
+
+  /* Apple Pay einrichten */
+  .guide { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 52px; counter-reset: step; }
+  .gstep { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 22px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 10px; }
+  .gstep h3 { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 1.1rem; line-height: 1.3; }
+  .gstep h3::before { counter-increment: step; content: counter(step); flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent-text); font-size: 0.9rem; }
+  .gstep.cards h3::before { content: "✓"; }
+  .gstep p { margin: 0; color: var(--muted); }
+  .gstep .warn { color: var(--orange); font-size: 0.95rem; }
+  .mk { --mk-panel: #f2f2f7; --mk-row: #ffffff; --mk-text: #1c1c1e; --mk-sub: #8a8a8e;
+        margin-top: 6px; background: var(--mk-panel); color: var(--mk-text); border-radius: 18px; padding: 12px; display: grid; gap: 7px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.86rem; }
+  @media (prefers-color-scheme: dark) { .mk { --mk-panel: #1c1c1e; --mk-row: #2c2c2e; --mk-text: #f2f2f7; --mk-sub: #98989f; } }
+  .mk b { font-weight: 650; }
+  .mk-row { display: flex; align-items: center; gap: 9px; background: var(--mk-row); border-radius: 11px; padding: 8px 11px; }
+  .mk-row small { display: block; color: var(--mk-sub); font-size: 0.78rem; }
+  .mk-row .end { margin-left: auto; color: #0a84ff; font-weight: 600; }
+  .mk-btn { justify-self: center; background: #0a84ff; color: #fff; border-radius: 999px; padding: 6px 16px; font-weight: 600; }
+  .mk-search { background: var(--mk-row); border-radius: 999px; padding: 7px 14px; color: var(--mk-text); }
+  .mk-search::before { content: "⌕ "; color: var(--mk-sub); }
+  .mk-tabs { display: flex; justify-content: center; gap: 6px; background: var(--mk-row); border-radius: 999px; padding: 4px; }
+  .mk-tabs span { padding: 4px 12px; border-radius: 999px; font-size: 0.78rem; }
+  .mk-tabs .on { color: #0a84ff; background: rgba(10, 132, 255, 0.14); font-weight: 600; }
+  .mk-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .mk-tile { background: var(--mk-row); border-radius: 13px; padding: 10px; min-height: 58px; font-size: 0.8rem; font-weight: 600; position: relative; }
+  .mk-tile.no { opacity: 0.6; }
+  .mk-tile.no::after { content: "✕"; position: absolute; top: -7px; right: -7px; width: 20px; height: 20px; border-radius: 50%; background: #ef4444; color: #fff; display: grid; place-items: center; font-size: 0.7rem; }
+  .mk-var { display: inline-block; background: #0a84ff; color: #fff; border-radius: 6px; padding: 0 6px; font-weight: 600; }
+  .mk-app { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; background: #f8c94a; color: #8a5a12; font-size: 0.8rem; flex: none; }
+  .mk-sentence { background: var(--mk-row); border-radius: 11px; padding: 9px 11px; line-height: 1.9; }
+  .hint { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (max-width: 920px) { .guide { grid-template-columns: 1fr; } }
 
   /* Kontakt */
   .kontakt { padding-top: 0; }
@@ -374,16 +405,16 @@
       <div class="copy">
         <p class="kicker"><svg class="i" aria-hidden="true"><use href="#i-bolt"/></svg>Automatisch</p>
         <h3>Apple Pay trägt sich selbst ein</h3>
-        <p>Richte einmal eine Automation in der Kurzbefehle-App ein. Danach landen Zahlungen mit Apple Pay von selbst in Monatskasse – mit Betrag, Händler und Karte.</p>
+        <p>Richte einmal eine Automation in der Kurzbefehle-App ein – eine für alle Karten. Danach landen Zahlungen mit Apple Pay von selbst in Monatskasse, mit Betrag, Händler und Karte.</p>
         <ul class="checks">
-          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Die App führt dich Schritt für Schritt durch die Einrichtung</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Die App führt dich Schritt für Schritt durch die Einrichtung – <a href="#apple-pay">die Anleitung steht auch hier</a></span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Jede Karte bekommt ihre Zahlart: einmal zugeordnet, immer richtig gebucht</span></li>
           <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Zur Sicherheit erst unter „Zu prüfen“, denn iOS meldet auch abgelehnte Zahlungen</span></li>
-          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Ein Tipp bestätigt – beim nächsten Einkauf im selben Geschäft stimmen Kategorie und Zahlart von selbst</span></li>
         </ul>
       </div>
       <figure class="media">
         <img class="shot" src="bilder/apple-pay.jpg" width="660" height="1434" loading="lazy" decoding="async"
-             alt="Anleitung in Monatskasse: Zahlungen mit Apple Pay in vier Schritten automatisch erfassen.">
+             alt="Apple Pay in Monatskasse: Zahlungen kommen an, dazu deine Karten mit ihren Zahlarten.">
       </figure>
     </article>
 
@@ -523,6 +554,92 @@
   </div>
 </section>
 
+<section class="alt" id="apple-pay">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Apple Pay einrichten</h2>
+      <p>Einmalig, in der Kurzbefehle-App, in sieben Schritten. Auf dem iPhone führt dich Monatskasse unter <em>Verwalten → Apple Pay automatisch erfassen</em> durch dieselben Schritte.</p>
+    </div>
+
+    <div class="guide">
+      <div class="gstep">
+        <h3>Kurzbefehle öffnen</h3>
+        <p>Öffne die App „Kurzbefehle“ und tippe unten auf „Automation“. Dann auf „Neue Automation“ – hast du schon Automationen, oben rechts auf ＋.</p>
+        <div class="mk" aria-hidden="true">
+          <b>Automation</b>
+          <span class="mk-btn hint">Neue Automation</span>
+          <div class="mk-tabs"><span>Mediathek</span><span class="on hint">Automation</span><span>Galerie</span></div>
+        </div>
+      </div>
+
+      <div class="gstep">
+        <h3>„Wallet“ wählen</h3>
+        <p>Tippe unten ins Suchfeld, gib „Wallet“ ein und wähle den Eintrag „Wallet“.</p>
+        <div class="mk" aria-hidden="true">
+          <b>Persönliche Automation</b>
+          <div class="mk-row hint"><span><b>Wallet</b><small>„Wenn ich eine Wallet-Karte verwende“</small></span></div>
+          <div class="mk-search">Wallet</div>
+        </div>
+      </div>
+
+      <div class="gstep">
+        <h3>Karten und Ausführung</h3>
+        <p>Wähle alle Karten aus, mit denen du bezahlst. Stelle „Sofort ausführen“ ein und lass „Bei Ausführung benachrichtigen“ aus. Tippe dann oben rechts auf „Weiter“.</p>
+        <div class="mk" aria-hidden="true">
+          <b>Wenn ich Folgendes auswähle</b>
+          <div class="mk-row">Visa Debit<span class="end">✓</span></div>
+          <div class="mk-row">Mastercard<span class="end">✓</span></div>
+          <div class="mk-row hint">Sofort ausführen<span class="end">✓</span></div>
+        </div>
+      </div>
+
+      <div class="gstep">
+        <h3>Neuen Kurzbefehl erstellen</h3>
+        <p>Tippe unter „Los gehts“ auf „Neuen Kurzbefehl erstellen“.</p>
+        <p class="warn">Nicht direkt auf „Ausgabe erfassen“ tippen: Dann legt iOS die Automation ohne verbundene Felder an, und sie kann den Betrag nicht übernehmen.</p>
+        <div class="mk" aria-hidden="true">
+          <b>Los gehts</b>
+          <div class="mk-tiles"><div class="mk-tile hint">Neuen Kurzbefehl erstellen</div><div class="mk-tile no">Ausgabe erfassen</div></div>
+        </div>
+      </div>
+
+      <div class="gstep">
+        <h3>Aktion einfügen</h3>
+        <p>Tippe unten auf „Aktionen suchen“, gib „Ausgabe erfassen“ ein und tippe auf die Aktion von Monatskasse.</p>
+        <div class="mk" aria-hidden="true">
+          <div class="mk-search">Ausgabe erfassen</div>
+          <div class="mk-row hint"><span class="mk-app">€</span>Ausgabe erfassen</div>
+        </div>
+      </div>
+
+      <div class="gstep">
+        <h3>Felder verbinden</h3>
+        <p>Tippe in der Aktion auf das blaue „Betrag“ und dann auf „Kurzbefehleingabe“. Tippe das blaue „Kurzbefehleingabe“ noch einmal an und wähle „Betrag“. Genauso verbindest du „Händler“ mit „Händlername“ und „Karte“ mit „Karte“.</p>
+        <div class="mk" aria-hidden="true">
+          <div class="mk-sentence"><span class="mk-app">€</span> Ausgabe über <span class="mk-var">Betrag</span> bei <span class="mk-var">Händlername</span> mit <span class="mk-var">Karte</span> erfassen</div>
+        </div>
+      </div>
+
+      <div class="gstep">
+        <h3>Fertig</h3>
+        <p>Tippe oben rechts auf ✓. Bezahlst du das nächste Mal mit dem iPhone an der Kasse, erscheint die Zahlung in Monatskasse unter „Zu prüfen“.</p>
+        <div class="mk" aria-hidden="true">
+          <div class="mk-row"><span><b>1 Zahlung zu prüfen</b><small>Migros · 23,40 €</small></span></div>
+        </div>
+      </div>
+
+      <div class="gstep cards">
+        <h3>Karten zuordnen</h3>
+        <p>Jede Karte, mit der du bezahlt hast, erscheint in Monatskasse unter „Deine Karten“. Wähle einmal die Zahlart – danach bucht die App jede Zahlung mit dieser Karte richtig.</p>
+        <div class="mk" aria-hidden="true">
+          <div class="mk-row">Visa Debit<span class="end">Girokonto</span></div>
+          <div class="mk-row">Revolut<span class="end" style="color: #f59e0b">Zuordnen</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="hilfe">
   <div class="wrap">
     <div class="section-head">
@@ -542,13 +659,28 @@
       <details>
         <summary>Wie werden Zahlungen mit Apple Pay automatisch erfasst?</summary>
         <div>
-          <p>Das richtest du einmal in der Kurzbefehle-App ein. In Monatskasse führt dich <em>Verwalten → Apple Pay automatisch erfassen</em> durch die Schritte:</p>
-          <ol>
-            <li>Öffne die Kurzbefehle-App, wechsle zu „Automation“ und tippe auf das Plus.</li>
-            <li>Wähle „Wallet“ (auf älteren Systemen „Transaktion“) und die Karten, die erfasst werden sollen.</li>
-            <li>Stelle „Sofort ausführen“ ein, damit nicht bei jedem Einkauf eine Rückfrage kommt.</li>
-            <li>Füge die Aktion „Ausgabe erfassen“ hinzu und verbinde Betrag, Händler und Karte mit den Werten aus dem Kurzbefehl.</li>
-          </ol>
+          <p>Mit einer Automation, die du einmal in der Kurzbefehle-App anlegst. Die Schritte stehen oben unter <a href="#apple-pay">Apple Pay einrichten</a>; in der App führt dich <em>Verwalten → Apple Pay automatisch erfassen</em> durch dieselben Schritte.</p>
+          <p>Wichtig ist Schritt 4: „Neuen Kurzbefehl erstellen“ wählen und nicht direkt „Ausgabe erfassen“ – sonst fehlen die verbundenen Felder.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Ich habe mehrere Karten – wie ordne ich sie zu?</summary>
+        <div>
+          <p>Eine Automation reicht für alle Karten. Verbinde in der Aktion auch das Feld „Karte“. Jede Karte, mit der du bezahlst, erscheint danach unter <em>Verwalten → Apple Pay automatisch erfassen → Deine Karten</em>. Dort wählst du einmal die Zahlart, und Monatskasse bucht jede Zahlung mit dieser Karte richtig – auch die, die noch unter „Zu prüfen“ warten.</p>
+          <p>Eine neue Karte kannst du auch direkt unter „Zu prüfen“ zuordnen.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Die Automation löst nicht aus – was kann ich tun?</summary>
+        <div>
+          <ul>
+            <li>Nur das Bezahlen mit dem iPhone an der Kasse löst die Automation aus – nicht die Apple Watch und keine Online-Käufe.</li>
+            <li>Prüfe, ob in der Automation „Sofort ausführen“ gewählt ist.</li>
+            <li>Wallet braucht mobile Daten: iOS-Einstellungen → „Mobilfunk“ → „Wallet“ einschalten.</li>
+            <li>In Monatskasse zeigt <em>Verwalten → Apple Pay automatisch erfassen</em> oben, wann zuletzt eine Zahlung ankam und ob Händler und Karte dabei waren.</li>
+          </ul>
         </div>
       </details>
 
