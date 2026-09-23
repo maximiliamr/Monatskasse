@@ -2,145 +2,643 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<title>Monatskasse – Hilfe &amp; Kontakt</title>
-<meta name="description" content="Hilfe und Kontakt zu Monatskasse, dem Haushaltsbuch für iPhone und iPad.">
+<title>Monatskasse – Haushaltsbuch für iPhone und iPad</title>
+<meta name="description" content="Wie viel ist diesen Monat noch übrig? Monatskasse ist das Haushaltsbuch für iPhone und iPad: Ausgaben in Sekunden erfassen, Fixkosten automatisch buchen, Budget im Blick – ohne Konto, ohne Werbung, ohne Tracking.">
+<link rel="canonical" href="https://maximiliamr.github.io/Monatskasse/">
+<link rel="icon" type="image/png" sizes="64x64" href="bilder/favicon.png">
+<link rel="apple-touch-icon" href="bilder/apple-touch-icon.png">
+<meta name="theme-color" content="#1D1C45">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Monatskasse">
+<meta property="og:title" content="Monatskasse – Haushaltsbuch für iPhone und iPad">
+<meta property="og:description" content="Budget, Ausgaben und Fixkosten auf einen Blick. Ohne Konto, ohne Werbung, ohne Tracking.">
+<meta property="og:url" content="https://maximiliamr.github.io/Monatskasse/">
+<meta property="og:image" content="https://maximiliamr.github.io/Monatskasse/bilder/vorschau.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Monatskasse auf dem iPhone: Übersicht und Analyse eines Monats">
+<meta name="twitter:card" content="summary_large_image">
 <style>
   :root {
-    --text: #1c1c1e;
-    --muted: #6c6c70;
-    --line: rgba(60, 60, 67, 0.18);
-    --accent: #5B5BD6;
-    --box: rgba(91, 91, 214, 0.08);
     --bg: #ffffff;
+    --bg-alt: #f4f4f8;
+    --card: #ffffff;
+    --text: #16161a;
+    --muted: #5d5d66;
+    --line: rgba(60, 60, 67, 0.14);
+    --accent: #5B5BD6;
+    --accent-text: #4b4bc8;
+    --accent-soft: rgba(91, 91, 214, 0.1);
+    --ring: rgba(20, 20, 40, 0.1);
+    --shadow: 0 1px 2px rgba(16, 16, 40, 0.04), 0 14px 34px -18px rgba(16, 16, 40, 0.2);
+    --indigo: #4f46e5;
+    --teal: #0f8a7e;
+    --violet: #7c3aed;
+    --orange: #c2410c;
+    --ink-1: #1D1C45;
+    --ink-2: #0B0B16;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-round: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --text: #f2f2f7;
-      --muted: #a1a1a8;
-      --line: rgba(235, 235, 245, 0.16);
-      --accent: #8C8CF2;
-      --box: rgba(140, 140, 242, 0.12);
       --bg: #000000;
+      --bg-alt: #0e0e15;
+      --card: #14141c;
+      --text: #f2f2f7;
+      --muted: #a4a4ae;
+      --line: rgba(235, 235, 245, 0.12);
+      --accent: #8C8CF2;
+      --accent-text: #a8a8ff;
+      --accent-soft: rgba(140, 140, 242, 0.14);
+      --ring: rgba(255, 255, 255, 0.12);
+      --shadow: none;
+      --indigo: #a5b4fc;
+      --teal: #5eead4;
+      --violet: #c4b5fd;
+      --orange: #fdba74;
     }
   }
-  html { -webkit-text-size-adjust: 100%; }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-padding-top: 76px; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
   body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
-    line-height: 1.55;
+    font-family: var(--font);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
-  main { max-width: 680px; margin: 0 auto; padding: 32px 20px 56px; }
-  h1 { font-size: 1.9em; line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.015em; }
-  .lead { color: var(--muted); font-size: 1.08em; margin: 0 0 28px; }
-  h2 { font-size: 1.15em; margin: 36px 0 12px; }
-  p { margin: 0 0 10px; }
-  a { color: var(--accent); }
-  .kontakt { background: var(--box); border-radius: 14px; padding: 16px 18px; }
-  .kontakt p:last-child { margin-bottom: 0; }
-  details { border-top: 1px solid var(--line); padding: 14px 0; }
-  details:last-of-type { border-bottom: 1px solid var(--line); }
-  summary { cursor: pointer; font-weight: 600; list-style: none; position: relative; padding-right: 28px; }
-  summary::-webkit-details-marker { display: none; }
-  summary::after { content: "+"; position: absolute; right: 4px; top: -1px; color: var(--accent); font-weight: 400; font-size: 1.3em; }
-  details[open] summary::after { content: "–"; }
-  details > div { margin-top: 10px; }
-  ol, ul { padding-left: 1.3em; margin: 0 0 10px; }
-  li { margin-bottom: 6px; }
-  footer { color: var(--muted); font-size: 0.9em; margin-top: 36px; }
+  img { max-width: 100%; height: auto; }
+  a { color: var(--accent-text); }
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 10px; }
+  .wrap { width: min(100% - 40px, 1120px); margin-inline: auto; }
+  .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+  svg.i { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* Navigation */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(29, 28, 69, 0.94);
+    -webkit-backdrop-filter: saturate(160%) blur(18px);
+    backdrop-filter: saturate(160%) blur(18px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-family: var(--font-round); font-weight: 700; font-size: 1.1rem; }
+  .brand img { border-radius: 22.4%; }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a { color: rgba(235, 235, 255, 0.8); text-decoration: none; font-size: 0.95rem; font-weight: 600; }
+  .nav-links a:hover { color: #fff; }
+
+  /* Kopfbereich */
+  .hero {
+    color: #fff;
+    background:
+      radial-gradient(900px 560px at 80% -10%, rgba(91, 91, 214, 0.55), transparent 70%),
+      linear-gradient(180deg, var(--ink-1), var(--ink-2));
+    overflow: hidden;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 56px; align-items: center; padding: 72px 0 88px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 14px; margin: 0; font-weight: 600; color: #c7c7f5; }
+  .app-icon { border-radius: 22.4%; box-shadow: 0 10px 26px -10px rgba(0, 0, 0, 0.7); }
+  .hero h1 {
+    font-family: var(--font-round); font-weight: 800;
+    font-size: clamp(2.5rem, 5.6vw, 4.3rem); line-height: 1.04; letter-spacing: -0.025em;
+    margin: 22px 0 20px; text-wrap: balance;
+  }
+  .lead { font-size: clamp(1.08rem, 1.6vw, 1.24rem); color: rgba(235, 235, 255, 0.8); max-width: 33em; margin: 0 0 26px; }
+  .pills { list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .pills li {
+    display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px 6px 10px; border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.13);
+    font-size: 0.95rem; font-weight: 600;
+  }
+  .pills .i { width: 18px; height: 18px; color: #86efac; stroke-width: 2.4; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 24px;
+    border-radius: 999px; font-weight: 650; font-size: 1.02rem; text-decoration: none;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-light { background: #fff; color: var(--ink-1); }
+  .btn-glass { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
+  .btn-accent { background: var(--accent); color: #fff; }
+  @media (prefers-color-scheme: dark) { .btn-accent { color: #0b0b16; } }
+
+  .hero-visual { position: relative; justify-self: center; width: min(100%, 440px); padding-left: 74px; }
+  .hero-phone { display: block; width: 100%; max-width: 310px; margin-left: auto; }
+  .hero-widget {
+    position: absolute; left: 0; bottom: -14px; width: 40%; max-width: 160px;
+    filter: drop-shadow(0 26px 34px rgba(0, 0, 0, 0.55));
+  }
+
+  /* Screenshots */
+  .shot {
+    display: block; height: auto; background: #000;
+    border-radius: 13% / 5.98%;
+    box-shadow: 0 0 0 1px var(--ring), 0 44px 80px -34px rgba(12, 10, 40, 0.5), 0 18px 36px -26px rgba(12, 10, 40, 0.35);
+  }
+  .hero .shot { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16), 0 50px 90px -30px rgba(0, 0, 0, 0.8); }
+
+  /* Abschnitte */
+  section { padding: 104px 0; }
+  .alt { background: var(--bg-alt); }
+  .section-head { max-width: 740px; margin: 0 auto; text-align: center; }
+  .section-head h2, .card h3, .row h3 { font-family: var(--font-round); letter-spacing: -0.02em; text-wrap: balance; }
+  .section-head h2 { font-size: clamp(2rem, 4.2vw, 3.05rem); line-height: 1.08; margin: 0 0 16px; }
+  .section-head p { color: var(--muted); font-size: 1.15rem; margin: 0; }
+  .kicker { display: inline-flex; align-items: center; gap: 8px; margin: 0; font-weight: 700; font-size: 0.95rem; color: var(--k, var(--accent-text)); }
+  .kicker .i { width: 20px; height: 20px; }
+
+  .row { --k: var(--indigo); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding-top: 96px; }
+  .row h3 { font-size: clamp(1.8rem, 3.3vw, 2.5rem); line-height: 1.1; margin: 12px 0 16px; }
+  .row .copy > p:not(.kicker) { color: var(--muted); font-size: 1.12rem; margin: 0 0 24px; }
+  .row.flip .media { order: -1; }
+  .checks { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  .checks li { display: flex; gap: 12px; align-items: flex-start; }
+  .checks .i { color: var(--k); margin-top: 2px; stroke-width: 2.2; }
+  .media { position: relative; display: grid; place-items: center; margin: 0; }
+  .media::before {
+    content: ""; position: absolute; width: 92%; aspect-ratio: 1; border-radius: 50%;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--k) 30%, transparent), transparent);
+  }
+  .media .shot { position: relative; width: min(300px, 74vw); }
+
+  /* Widgets und iPad */
+  .bento { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 56px; }
+  .card { position: relative; overflow: hidden; border-radius: 30px; padding: 40px 40px 0; display: flex; flex-direction: column; min-height: 600px; }
+  .card h3 { font-size: clamp(1.55rem, 2.6vw, 2.05rem); line-height: 1.12; margin: 10px 0 12px; }
+  .card p:not(.kicker) { margin: 0; }
+  .card .kicker { margin: 0; }
+  .card-widgets {
+    color: #fff;
+    background:
+      radial-gradient(110% 80% at 100% 0%, rgba(96, 165, 250, 0.85), transparent 60%),
+      radial-gradient(90% 70% at 0% 100%, rgba(20, 184, 166, 0.8), transparent 65%),
+      linear-gradient(160deg, #0c2c8f, #06114a);
+  }
+  .card-widgets .kicker { color: #bfdbfe; }
+  .card-widgets p:not(.kicker) { color: rgba(255, 255, 255, 0.84); }
+  .widget-stage { flex: 1; display: grid; place-items: center; padding: 36px 0 44px; }
+  .widget-stage img { width: min(100%, 430px); filter: drop-shadow(0 26px 40px rgba(0, 0, 0, 0.42)); }
+  .card-ipad { background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow); }
+  .card-ipad p:not(.kicker) { color: var(--muted); }
+  .ipad {
+    display: block; width: 84%; margin: 40px auto -36%;
+    border-radius: 3.2% / 2.4%;
+    box-shadow: 0 0 0 1px var(--ring), 0 30px 60px -28px rgba(12, 10, 40, 0.45);
+  }
+
+  /* Weitere Funktionen */
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px; }
+  .tile { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 28px; box-shadow: var(--shadow); }
+  .tile .ico { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent-text); margin-bottom: 18px; }
+  .tile .ico .i { width: 24px; height: 24px; }
+  .tile h3 { font-size: 1.12rem; line-height: 1.3; margin: 0 0 6px; }
+  .tile p { color: var(--muted); margin: 0; font-size: 1rem; }
+
+  /* Privatsphäre */
+  .privat {
+    color: #fff;
+    background:
+      radial-gradient(820px 420px at 50% 0%, rgba(91, 91, 214, 0.45), transparent 70%),
+      linear-gradient(180deg, var(--ink-2), var(--ink-1));
+  }
+  .privat .section-head p { color: rgba(235, 235, 255, 0.76); }
+  .privat .kicker { color: #c7c7f5; }
+  .privat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 52px; }
+  .privat-tile { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; padding: 28px; }
+  .privat-tile .i { width: 30px; height: 30px; color: #b4b4ff; margin-bottom: 16px; stroke-width: 1.6; }
+  .privat-tile h3 { margin: 0 0 6px; font-size: 1.1rem; }
+  .privat-tile p { margin: 0; color: rgba(235, 235, 255, 0.74); font-size: 0.98rem; }
+  .privat-link { text-align: center; margin: 40px 0 0; }
+  .privat-link a { display: inline-flex; align-items: center; gap: 6px; color: #d0d0ff; font-weight: 650; text-decoration: none; }
+  .privat-link a:hover { color: #fff; }
+
+  /* Hilfe */
+  .faq { max-width: 780px; margin: 52px auto 0; display: grid; gap: 12px; }
+  .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 0 24px; box-shadow: var(--shadow); }
+  .faq summary { cursor: pointer; list-style: none; position: relative; padding: 19px 40px 19px 0; font-weight: 650; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: ""; position: absolute; right: 4px; top: 50%; width: 9px; height: 9px;
+    border-right: 2px solid var(--accent-text); border-bottom: 2px solid var(--accent-text);
+    transform: translateY(-75%) rotate(45deg); transition: transform 0.2s ease;
+  }
+  .faq details[open] summary::after { transform: translateY(-25%) rotate(-135deg); }
+  .faq details > div { padding: 0 0 20px; color: var(--muted); }
+  .faq p { margin: 0 0 10px; }
+  .faq p:last-child, .faq ol:last-child { margin-bottom: 0; }
+  .faq ol { padding-left: 1.3em; margin: 0 0 10px; }
+  .faq li { margin-bottom: 6px; }
+
+  /* Kontakt */
+  .kontakt { padding-top: 0; }
+  .kontakt-card {
+    max-width: 780px; margin: 0 auto; text-align: center; border-radius: 30px; padding: 48px 32px;
+    background: linear-gradient(var(--card), var(--card)) padding-box, linear-gradient(135deg, #5B5BD6, #14B8A6) border-box;
+    border: 1.5px solid transparent; box-shadow: var(--shadow);
+  }
+  .kontakt-card h2 { font-family: var(--font-round); font-size: clamp(1.6rem, 3vw, 2.1rem); letter-spacing: -0.015em; line-height: 1.15; margin: 0 0 12px; }
+  .kontakt-card p { color: var(--muted); margin: 0 auto 24px; max-width: 36em; }
+  .kontakt-card .btn { margin-bottom: 18px; }
+  .kontakt-card .small { font-size: 0.95rem; margin-bottom: 0; }
+
+  /* Fußzeile */
+  footer { border-top: 1px solid var(--line); padding: 36px 0 52px; color: var(--muted); font-size: 0.93rem; }
+  .foot { display: flex; flex-wrap: wrap; gap: 14px 32px; align-items: center; justify-content: space-between; }
+  .foot .brand { color: var(--text); font-size: 1rem; }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+  .foot-links a { color: var(--muted); text-decoration: none; }
+  .foot-links a:hover { color: var(--text); }
+  .fine { margin: 22px 0 0; font-size: 0.82rem; line-height: 1.55; }
+
+  @media (max-width: 920px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; padding: 52px 0 72px; }
+    .hero-visual { width: min(100%, 400px); }
+    .row { grid-template-columns: 1fr; gap: 40px; padding-top: 72px; }
+    .row.flip .media { order: 0; }
+    .bento { grid-template-columns: 1fr; }
+    .card { min-height: 0; }
+    .grid, .privat-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    section { padding: 72px 0; }
+    .wrap { width: min(100% - 32px, 1120px); }
+    .nav-links .optional { display: none; }
+    .hero-visual { padding-left: 56px; }
+    .card { padding: 30px 24px 0; border-radius: 26px; }
+    .grid, .privat-grid { grid-template-columns: 1fr; }
+    .kontakt-card { padding: 36px 22px; }
+    .btn { padding: 0 20px; }
+    .cta .btn { flex: 1 1 auto; }
+  }
 </style>
 </head>
 <body>
+
+<svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 8.5v7M8.5 12h7"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3L5.5 13.5H12L11 21l7.5-10.5H12z"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M7 16.5V11M12 16.5V6.5M17 16.5v-4"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 7h11M9 12h11M9 17h11"/><circle cx="4.8" cy="7" r=".9"/><circle cx="4.8" cy="12" r=".9"/><circle cx="4.8" cy="17" r=".9"/></symbol>
+  <symbol id="i-widget" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7.5" height="7.5" rx="2"/><rect x="13" y="3.5" width="7.5" height="7.5" rx="2"/><rect x="3.5" y="13" width="17" height="7.5" rx="2"/></symbol>
+  <symbol id="i-devices" viewBox="0 0 24 24"><rect x="3" y="4" width="13" height="16" rx="2"/><rect x="14" y="9" width="7" height="12" rx="1.6"/></symbol>
+  <symbol id="i-ring" viewBox="0 0 24 24"><path d="M12 4a8 8 0 1 1-8 8"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.3V5A1.5 1.5 0 0 1 5 3.5h7.3a1.5 1.5 0 0 1 1 .4l7.3 7.3a1.5 1.5 0 0 1 0 2.1l-7.3 7.3a1.5 1.5 0 0 1-2.1 0l-7.3-7.3a1.5 1.5 0 0 1-.4-1z"/><circle cx="8.3" cy="8.3" r="1.4"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 14.5V3.5M8 7.5l4-4 4 4"/><path d="M7.5 10.5H6A1.5 1.5 0 0 0 4.5 12v7A1.5 1.5 0 0 0 6 20.5h12a1.5 1.5 0 0 0 1.5-1.5v-7a1.5 1.5 0 0 0-1.5-1.5h-1.5"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.8A8.3 8.3 0 1 1 9.2 4a6.6 6.6 0 0 0 10.8 10.8z"/></symbol>
+  <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7.5 18.5h9.8a4.2 4.2 0 0 0 .5-8.37A6 6 0 0 0 6.2 9.4a4.6 4.6 0 0 0 1.3 9.1z"/></symbol>
+  <symbol id="i-eyeoff" viewBox="0 0 24 24"><path d="M3.5 3.5l17 17"/><path d="M10.4 5.2c.5-.1 1-.2 1.6-.2 5 0 8.6 4.4 9.5 7-.3.9-1 2.1-2 3.3M6.7 6.8C4.7 8.1 3.1 10.2 2.5 12c.9 2.6 4.5 7 9.5 7 1.6 0 3-.4 4.3-1.1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
+  <symbol id="i-faceid" viewBox="0 0 24 24"><path d="M4 8.5v-2A2.5 2.5 0 0 1 6.5 4h2M15.5 4h2A2.5 2.5 0 0 1 20 6.5v2M20 15.5v2a2.5 2.5 0 0 1-2.5 2.5h-2M8.5 20h-2A2.5 2.5 0 0 1 4 17.5v-2"/><path d="M9 9v1.5M15 9v1.5M12 9v4h-1M9 15.5c1.7 1.4 4.3 1.4 6 0"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+
+<nav class="nav" aria-label="Hauptnavigation">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="bilder/icon.png" width="30" height="30" alt=""> Monatskasse</a>
+    <div class="nav-links">
+      <a class="optional" href="#funktionen">Funktionen</a>
+      <a class="optional" href="#privat">Privatsphäre</a>
+      <a href="#hilfe">Hilfe</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow"><img class="app-icon" src="bilder/icon.png" width="56" height="56" alt=""> Haushaltsbuch für iPhone und iPad</p>
+      <h1>Wie viel ist diesen Monat noch übrig?</h1>
+      <p class="lead">Monatskasse zeigt dir auf einen Blick, was du ausgegeben hast und was bis zum Monatsende bleibt. Ausgaben in Sekunden erfassen, Fixkosten automatisch buchen, Budget im Blick behalten.</p>
+      <ul class="pills">
+        <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Kein Konto</li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Keine Werbung</li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Kein Tracking</li>
+      </ul>
+      <div class="cta">
+        <a class="btn btn-light" href="#funktionen">Funktionen ansehen</a>
+        <a class="btn btn-glass" href="#hilfe">Hilfe &amp; Kontakt</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img class="shot hero-phone" src="bilder/uebersicht.jpg" width="660" height="1434" fetchpriority="high"
+           alt="Die Übersicht in Monatskasse: Im September sind von 3.500 € Budget noch 1.000,66 € übrig, 71 Prozent sind genutzt.">
+      <img class="hero-widget" src="bilder/widget-klein.png" width="353" height="353"
+           alt="Kleines Widget auf dem Home-Bildschirm: 2.499,34 € ausgegeben, 1.000,66 € übrig.">
+    </div>
+  </div>
+</header>
+
 <main>
 
-<h1>Monatskasse</h1>
-<p class="lead">Das Haushaltsbuch für iPhone und iPad. Hier findest du Antworten auf häufige Fragen und erreichst uns, wenn etwas nicht klappt.</p>
+<section id="funktionen">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Einfach im Alltag. Klar am Monatsende.</h2>
+      <p>Du erfasst, was du ausgibst. Monatskasse rechnet mit und zeigt dir jederzeit, wo du stehst.</p>
+    </div>
 
-<section class="kontakt">
-  <p><strong>Kontakt</strong></p>
-  <p>Schreib uns an <a href="mailto:maxi.ruhl@hotmail.de">maxi.ruhl@hotmail.de</a>. Wenn etwas nicht wie erwartet funktioniert, hilft ein Diagnosebericht: in der App unter <em>Verwalten → iCloud-Sync → Diagnose teilen</em>. Er enthält keine Inhalte deiner Buchungen.</p>
+    <article class="row">
+      <div class="copy">
+        <p class="kicker"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>Erfassen</p>
+        <h3>In Sekunden erfasst</h3>
+        <p>Betrag, Titel, fertig. Häufige Einträge schlägt Monatskasse schon beim Tippen vor, samt Kategorie und Zahlart.</p>
+        <ul class="checks">
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Kassenbeleg fotografieren: Betrag und Datum werden direkt auf dem Gerät erkannt</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Rechnung geteilt? Gesamtbetrag und Anzahl Personen eingeben, gespeichert wird dein Anteil</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Auch mit Siri, mit Kurzbefehlen oder über den Knopf im Kontrollzentrum</span></li>
+        </ul>
+      </div>
+      <figure class="media">
+        <img class="shot" src="bilder/erfassen.jpg" width="660" height="1434" loading="lazy" decoding="async"
+             alt="Auswahl beim Erfassen: Ausgabe erfassen, Beleg scannen oder Gruppenausgabe.">
+      </figure>
+    </article>
+
+    <article class="row flip" style="--k: var(--teal)">
+      <div class="copy">
+        <p class="kicker"><svg class="i" aria-hidden="true"><use href="#i-bolt"/></svg>Automatisch</p>
+        <h3>Apple Pay trägt sich selbst ein</h3>
+        <p>Richte einmal eine Automation in der Kurzbefehle-App ein. Danach landen Zahlungen mit Apple Pay von selbst in Monatskasse – mit Betrag, Händler und Karte.</p>
+        <ul class="checks">
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Die App führt dich Schritt für Schritt durch die Einrichtung</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Zur Sicherheit erst unter „Zu prüfen“, denn iOS meldet auch abgelehnte Zahlungen</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Ein Tipp bestätigt – beim nächsten Einkauf im selben Geschäft stimmen Kategorie und Zahlart von selbst</span></li>
+        </ul>
+      </div>
+      <figure class="media">
+        <img class="shot" src="bilder/apple-pay.jpg" width="660" height="1434" loading="lazy" decoding="async"
+             alt="Anleitung in Monatskasse: Zahlungen mit Apple Pay in vier Schritten automatisch erfassen.">
+      </figure>
+    </article>
+
+    <article class="row" style="--k: var(--violet)">
+      <div class="copy">
+        <p class="kicker"><svg class="i" aria-hidden="true"><use href="#i-chart"/></svg>Analyse</p>
+        <h3>Sehen, wohin das Geld geht</h3>
+        <p>Wie steht der Monat im Vergleich zum Vormonat und zu deinem Schnitt? Wo landest du, wenn es so weitergeht? Monatskasse rechnet es dir aus.</p>
+        <ul class="checks">
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Verlauf über drei, sechs oder zwölf Monate</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Aufgeteilt nach Kategorien und Zahlarten</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Hochrechnung aufs Monatsende und der Anteil deiner Fixkosten</span></li>
+        </ul>
+      </div>
+      <figure class="media">
+        <img class="shot" src="bilder/analyse.jpg" width="660" height="1434" loading="lazy" decoding="async"
+             alt="Analyse: 2.499,34 € im September, 20 Prozent weniger als im Vormonat, dazu der Verlauf der letzten sechs Monate.">
+      </figure>
+    </article>
+
+    <article class="row flip" style="--k: var(--orange)">
+      <div class="copy">
+        <p class="kicker"><svg class="i" aria-hidden="true"><use href="#i-list"/></svg>Buchungen &amp; Fixkosten</p>
+        <h3>Alles an seinem Platz</h3>
+        <p>Jede Ausgabe nach Tagen sortiert, mit Kategorie und Zahlart – und über die Suche schnell wiedergefunden. Miete, Versicherung und Abos legst du einmal an, Monatskasse bucht sie pünktlich von selbst.</p>
+        <ul class="checks">
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Täglich, wöchentlich, monatlich oder jährlich</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Im Tagesschnitt über den Monat verteilt, statt dich am Monatsersten zu erschrecken</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Erinnerung einen Tag vor großen Fixkosten</span></li>
+        </ul>
+      </div>
+      <figure class="media">
+        <img class="shot" src="bilder/buchungen.jpg" width="660" height="1434" loading="lazy" decoding="async"
+             alt="Buchungen nach Tagen: Wocheneinkauf 87,40 €, Bäckerei 6,80 €, Tanken 78,40 €, Mittagessen 12,90 €.">
+      </figure>
+    </article>
+  </div>
 </section>
 
-<h2>Häufige Fragen</h2>
-
-<details>
-  <summary>Wie kommen meine Einträge auf mein iPad?</summary>
-  <div>
-    <p>Monatskasse gleicht deine Daten über deine iCloud ab. Dafür musst du auf beiden Geräten mit demselben Apple Account angemeldet sein, und iCloud darf für Monatskasse nicht ausgeschaltet sein (iOS-Einstellungen → dein Name → iCloud → Apps, die iCloud verwenden).</p>
-    <p>Der erste Abgleich kann ein paar Minuten dauern. Den aktuellen Stand siehst du in der App unter <em>Verwalten → iCloud-Sync</em>.</p>
+<section class="alt" id="geraete">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Dein Stand, wo du ihn brauchst</h2>
+      <p>Auf dem Home-Bildschirm, auf dem iPhone und auf dem iPad – immer mit denselben Zahlen.</p>
+    </div>
+    <div class="bento">
+      <div class="card card-widgets">
+        <p class="kicker"><svg class="i" aria-hidden="true"><use href="#i-widget"/></svg>Widgets</p>
+        <h3>Ein Blick, ohne die App zu öffnen</h3>
+        <p>Widgets in zwei Größen zeigen Monatssumme, Budget und die größten Kategorien direkt auf dem Home-Bildschirm.</p>
+        <div class="widget-stage">
+          <img src="bilder/widget-mittel.png" width="756" height="353" loading="lazy" decoding="async"
+               alt="Mittleres Widget: 2.499,34 € im September, die größten Kategorien Wohnen, Lebensmittel, Mobilität und Freizeit, 20 Prozent weniger als im Vormonat.">
+        </div>
+      </div>
+      <div class="card card-ipad">
+        <p class="kicker"><svg class="i" aria-hidden="true"><use href="#i-devices"/></svg>iPhone und iPad</p>
+        <h3>Überall derselbe Stand</h3>
+        <p>Deine Einträge gleichen sich über deine iCloud automatisch ab. Auf dem iPad mit Seitenleiste und viel Platz.</p>
+        <img class="ipad" src="bilder/ipad.jpg" width="1032" height="1376" loading="lazy" decoding="async"
+             alt="Monatskasse auf dem iPad mit Budget-Ring, Kennzahlen und Aufteilung nach Kategorien.">
+      </div>
+    </div>
   </div>
-</details>
+</section>
 
-<details>
-  <summary>Wie werden Zahlungen mit Apple Pay automatisch erfasst?</summary>
-  <div>
-    <p>Das richtest du einmal in der Kurzbefehle-App ein. In Monatskasse führt dich <em>Verwalten → Apple Pay automatisch erfassen</em> durch die Schritte:</p>
-    <ol>
-      <li>Öffne die Kurzbefehle-App, wechsle zu „Automation“ und tippe auf das Plus.</li>
-      <li>Wähle „Wallet“ (auf älteren Systemen „Transaktion“) und die Karten, die erfasst werden sollen.</li>
-      <li>Stelle „Sofort ausführen“ ein, damit nicht bei jedem Einkauf eine Rückfrage kommt.</li>
-      <li>Füge die Aktion „Ausgabe erfassen“ hinzu und verbinde Betrag, Händler und Karte mit den Werten aus dem Kurzbefehl.</li>
-    </ol>
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Durchdacht bis ins Detail</h2>
+      <p>Kleine Dinge, die im Alltag den Unterschied machen.</p>
+    </div>
+    <div class="grid">
+      <div class="tile">
+        <div class="ico"><svg class="i" aria-hidden="true"><use href="#i-ring"/></svg></div>
+        <h3>Budget als Ring</h3>
+        <p>Grün, solange alles im Rahmen ist, orange ab drei Vierteln, rot, wenn es überzogen ist. Für einzelne Monate anpassbar, etwa für den Urlaubsmonat.</p>
+      </div>
+      <div class="tile">
+        <div class="ico"><svg class="i" aria-hidden="true"><use href="#i-bell"/></svg></div>
+        <h3>Erinnert, wenn es zählt</h3>
+        <p>Bei 80 und 100 Prozent deines Budgets, einen Tag vor großen Fixkosten und mit einem Rückblick zum Monatsanfang. Mehr nicht.</p>
+      </div>
+      <div class="tile">
+        <div class="ico"><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg></div>
+        <h3>Siri und Kurzbefehle</h3>
+        <p>„Ausgabe in Monatskasse erfassen“ – oder frag nach deinem Monatsstand.</p>
+      </div>
+      <div class="tile">
+        <div class="ico"><svg class="i" aria-hidden="true"><use href="#i-tag"/></svg></div>
+        <h3>Deine Kategorien</h3>
+        <p>Eigene Kategorien mit Emoji und Farbe, dazu deine Zahlarten – vom Girokonto bis zum Bargeld.</p>
+      </div>
+      <div class="tile">
+        <div class="ico"><svg class="i" aria-hidden="true"><use href="#i-share"/></svg></div>
+        <h3>Export und Sicherung</h3>
+        <p>Als Tabelle für Numbers oder Excel oder als vollständige Sicherung aller Buchungen, Kategorien, Zahlarten, Fixkosten und Budgets.</p>
+      </div>
+      <div class="tile">
+        <div class="ico"><svg class="i" aria-hidden="true"><use href="#i-moon"/></svg></div>
+        <h3>Dunkelmodus und große Schrift</h3>
+        <p>Monatskasse richtet sich nach deinen Einstellungen und bleibt auch mit großer Schrift gut lesbar.</p>
+      </div>
+    </div>
   </div>
-</details>
+</section>
 
-<details>
-  <summary>Warum steht eine Zahlung unter „Zu prüfen“?</summary>
-  <div>
-    <p>Die Automation von iOS meldet auch Zahlungen, die abgelehnt wurden. Automatisch erfasste Zahlungen landen deshalb zuerst unter „Zu prüfen“ und zählen erst nach deiner Bestätigung zur Monatssumme.</p>
-    <p>Korrigierst du dabei Kategorie oder Zahlart, merkt sich Monatskasse den Händler und ordnet ihn beim nächsten Einkauf selbst richtig zu. Löst die Automation zweimal aus, wird derselbe Betrag beim selben Händler innerhalb von fünf Minuten nur einmal erfasst.</p>
+<section class="privat" id="privat">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Deine Finanzen gehen nur dich etwas an</h2>
+      <p>Monatskasse braucht kein Konto, betreibt keinen eigenen Server und zeigt keine Werbung. Deine Einträge liegen auf deinem Gerät und in deiner privaten iCloud.</p>
+    </div>
+    <div class="privat-grid">
+      <div class="privat-tile">
+        <svg class="i" aria-hidden="true"><use href="#i-person"/></svg>
+        <h3>Kein Konto</h3>
+        <p>Keine Registrierung und keine Bankzugangsdaten. Monatskasse verbindet sich mit keiner Bank und bewegt kein Geld.</p>
+      </div>
+      <div class="privat-tile">
+        <svg class="i" aria-hidden="true"><use href="#i-cloud"/></svg>
+        <h3>Deine iCloud</h3>
+        <p>Der Abgleich läuft über deine private iCloud. Wir als Entwickler haben darauf keinen Zugriff.</p>
+      </div>
+      <div class="privat-tile">
+        <svg class="i" aria-hidden="true"><use href="#i-eyeoff"/></svg>
+        <h3>Kein Tracking</h3>
+        <p>Keine Werbung, keine Analysewerkzeuge und keine Software von Drittanbietern, die Daten über dich sammelt.</p>
+      </div>
+      <div class="privat-tile">
+        <svg class="i" aria-hidden="true"><use href="#i-faceid"/></svg>
+        <h3>Mit Face ID gesperrt</h3>
+        <p>Auf Wunsch fragt Monatskasse nach Face ID, bevor deine Zahlen zu sehen sind.</p>
+      </div>
+    </div>
+    <p class="privat-link"><a href="datenschutz.html">Datenschutzerklärung lesen <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
   </div>
-</details>
+</section>
 
-<details>
-  <summary>Wie lege ich Fixkosten wie Miete oder Abos an?</summary>
-  <div>
-    <p>Beim Erfassen einer Ausgabe den Schalter „Als Fixkosten anlegen“ einschalten, oder unter <em>Verwalten → Fixkosten</em> auf das Plus tippen. Du wählst, ob sie täglich, wöchentlich, monatlich oder jährlich anfallen. Monatskasse bucht sie dann pünktlich von selbst.</p>
+<section id="hilfe">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Hilfe</h2>
+      <p>Antworten auf häufige Fragen. Und wenn etwas nicht klappt, schreib uns einfach.</p>
+    </div>
+
+    <div class="faq">
+      <details>
+        <summary>Wie kommen meine Einträge auf mein iPad?</summary>
+        <div>
+          <p>Monatskasse gleicht deine Daten über deine iCloud ab. Dafür musst du auf beiden Geräten mit demselben Apple Account angemeldet sein, und iCloud darf für Monatskasse nicht ausgeschaltet sein (iOS-Einstellungen → dein Name → iCloud → Apps, die iCloud verwenden).</p>
+          <p>Der erste Abgleich kann ein paar Minuten dauern. Den aktuellen Stand siehst du in der App unter <em>Verwalten → iCloud-Sync</em>.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Wie werden Zahlungen mit Apple Pay automatisch erfasst?</summary>
+        <div>
+          <p>Das richtest du einmal in der Kurzbefehle-App ein. In Monatskasse führt dich <em>Verwalten → Apple Pay automatisch erfassen</em> durch die Schritte:</p>
+          <ol>
+            <li>Öffne die Kurzbefehle-App, wechsle zu „Automation“ und tippe auf das Plus.</li>
+            <li>Wähle „Wallet“ (auf älteren Systemen „Transaktion“) und die Karten, die erfasst werden sollen.</li>
+            <li>Stelle „Sofort ausführen“ ein, damit nicht bei jedem Einkauf eine Rückfrage kommt.</li>
+            <li>Füge die Aktion „Ausgabe erfassen“ hinzu und verbinde Betrag, Händler und Karte mit den Werten aus dem Kurzbefehl.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details>
+        <summary>Warum steht eine Zahlung unter „Zu prüfen“?</summary>
+        <div>
+          <p>Die Automation von iOS meldet auch Zahlungen, die abgelehnt wurden. Automatisch erfasste Zahlungen landen deshalb zuerst unter „Zu prüfen“ und zählen erst nach deiner Bestätigung zur Monatssumme.</p>
+          <p>Korrigierst du dabei Kategorie oder Zahlart, merkt sich Monatskasse den Händler und ordnet ihn beim nächsten Einkauf selbst richtig zu. Löst die Automation zweimal aus, wird derselbe Betrag beim selben Händler innerhalb von fünf Minuten nur einmal erfasst.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Wie lege ich Fixkosten wie Miete oder Abos an?</summary>
+        <div>
+          <p>Beim Erfassen einer Ausgabe den Schalter „Als Fixkosten anlegen“ einschalten, oder unter <em>Verwalten → Fixkosten</em> auf das Plus tippen. Du wählst, ob sie täglich, wöchentlich, monatlich oder jährlich anfallen. Monatskasse bucht sie dann pünktlich von selbst.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Kann ich das Budget für einen einzelnen Monat ändern?</summary>
+        <div>
+          <p>Ja. Tippe in der Übersicht auf das Regler-Symbol im Budget-Ring. Das Standardbudget für alle Monate stellst du unter <em>Verwalten → Monatsbudget</em> ein.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Wie sichere oder exportiere ich meine Daten?</summary>
+        <div>
+          <p>Unter <em>Verwalten → Exportieren &amp; sichern</em>: als Tabelle für Numbers oder Excel, oder als vollständige Sicherung aller Buchungen, Kategorien, Zahlarten, Fixkosten und Budgets.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Wie schütze ich die App mit Face ID?</summary>
+        <div>
+          <p>Unter <em>Verwalten → App sperren</em>. Die App verlangt dann eine Bestätigung, wenn du sie nach mehr als einer Minute im Hintergrund wieder öffnest.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Wie lösche ich alle meine Daten?</summary>
+        <div>
+          <p>Löschst du die App, werden die Daten auf diesem Gerät entfernt. Die Daten in iCloud löschst du in den iOS-Einstellungen unter deinem Namen → „iCloud“ → „Speicher verwalten“ → „Monatskasse“.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Verbindet sich Monatskasse mit meiner Bank?</summary>
+        <div>
+          <p>Nein. Monatskasse ist ein persönliches Haushaltsbuch. Die App braucht keine Bankzugangsdaten, verbindet sich mit keiner Bank und bewegt kein Geld.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Welche Geräte werden unterstützt?</summary>
+        <div>
+          <p>iPhone und iPad ab iOS bzw. iPadOS 18.5.</p>
+        </div>
+      </details>
+    </div>
   </div>
-</details>
+</section>
 
-<details>
-  <summary>Kann ich das Budget für einen einzelnen Monat ändern?</summary>
-  <div>
-    <p>Ja. Tippe in der Übersicht auf das Regler-Symbol im Budget-Ring. Das Standardbudget für alle Monate stellst du unter <em>Verwalten → Monatsbudget</em> ein.</p>
+<section class="kontakt" id="kontakt">
+  <div class="wrap">
+    <div class="kontakt-card">
+      <h2>Fragen, Ideen oder ein Fehler?</h2>
+      <p>Schreib einfach eine E-Mail an <a href="mailto:maxi.ruhl@hotmail.de">maxi.ruhl@hotmail.de</a>.</p>
+      <a class="btn btn-accent" href="mailto:maxi.ruhl@hotmail.de?subject=Monatskasse"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>E-Mail schreiben</a>
+      <p class="small">Wenn etwas nicht wie erwartet funktioniert, hilft ein Diagnosebericht: in der App unter <em>Verwalten → iCloud-Sync → Diagnose teilen</em>. Er enthält keine Inhalte deiner Buchungen.</p>
+    </div>
   </div>
-</details>
-
-<details>
-  <summary>Wie sichere oder exportiere ich meine Daten?</summary>
-  <div>
-    <p>Unter <em>Verwalten → Exportieren &amp; sichern</em>: als Tabelle für Numbers oder Excel, oder als vollständige Sicherung aller Buchungen, Kategorien, Zahlarten, Fixkosten und Budgets.</p>
-  </div>
-</details>
-
-<details>
-  <summary>Wie schütze ich die App mit Face ID?</summary>
-  <div>
-    <p>Unter <em>Verwalten → App sperren</em>. Die App verlangt dann eine Bestätigung, wenn du sie nach mehr als einer Minute im Hintergrund wieder öffnest.</p>
-  </div>
-</details>
-
-<details>
-  <summary>Wie lösche ich alle meine Daten?</summary>
-  <div>
-    <p>Löschst du die App, werden die Daten auf diesem Gerät entfernt. Die Daten in iCloud löschst du in den iOS-Einstellungen unter deinem Namen → „iCloud“ → „Speicher verwalten“ → „Monatskasse“.</p>
-  </div>
-</details>
-
-<details>
-  <summary>Verbindet sich Monatskasse mit meiner Bank?</summary>
-  <div>
-    <p>Nein. Monatskasse ist ein persönliches Haushaltsbuch. Die App braucht keine Bankzugangsdaten, verbindet sich mit keiner Bank und bewegt kein Geld.</p>
-  </div>
-</details>
-
-<footer>
-  <p><a href="datenschutz.html">Datenschutzerklärung</a> · © 2026 Maximilian Ruhl</p>
-</footer>
+</section>
 
 </main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="#top"><img src="bilder/icon.png" width="26" height="26" alt=""> Monatskasse</a>
+      <div class="foot-links">
+        <a href="datenschutz.html">Datenschutzerklärung</a>
+        <a href="#hilfe">Hilfe</a>
+        <a href="#kontakt">Kontakt</a>
+        <span>© 2026 Maximilian Ruhl</span>
+      </div>
+    </div>
+    <p class="fine">Alle Beträge in den Abbildungen sind Beispieldaten. Apple, Apple Pay, Face ID, iCloud, iPad, iPadOS, iPhone und Siri sind Marken der Apple Inc., die in den USA und weiteren Ländern eingetragen sind.</p>
+  </div>
+</footer>
+
 </body>
 </html>
