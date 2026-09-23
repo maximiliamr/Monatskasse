@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Monatskasse – Hilfe &amp; Kontakt</title>
+<meta name="description" content="Hilfe und Kontakt zu Monatskasse, dem Haushaltsbuch für iPhone und iPad.">
+<style>
+  :root {
+    --text: #1c1c1e;
+    --muted: #6c6c70;
+    --line: rgba(60, 60, 67, 0.18);
+    --accent: #5B5BD6;
+    --box: rgba(91, 91, 214, 0.08);
+    --bg: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text: #f2f2f7;
+      --muted: #a1a1a8;
+      --line: rgba(235, 235, 245, 0.16);
+      --accent: #8C8CF2;
+      --box: rgba(140, 140, 242, 0.12);
+      --bg: #000000;
+    }
+  }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.55;
+  }
+  main { max-width: 680px; margin: 0 auto; padding: 32px 20px 56px; }
+  h1 { font-size: 1.9em; line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.015em; }
+  .lead { color: var(--muted); font-size: 1.08em; margin: 0 0 28px; }
+  h2 { font-size: 1.15em; margin: 36px 0 12px; }
+  p { margin: 0 0 10px; }
+  a { color: var(--accent); }
+  .kontakt { background: var(--box); border-radius: 14px; padding: 16px 18px; }
+  .kontakt p:last-child { margin-bottom: 0; }
+  details { border-top: 1px solid var(--line); padding: 14px 0; }
+  details:last-of-type { border-bottom: 1px solid var(--line); }
+  summary { cursor: pointer; font-weight: 600; list-style: none; position: relative; padding-right: 28px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; position: absolute; right: 4px; top: -1px; color: var(--accent); font-weight: 400; font-size: 1.3em; }
+  details[open] summary::after { content: "–"; }
+  details > div { margin-top: 10px; }
+  ol, ul { padding-left: 1.3em; margin: 0 0 10px; }
+  li { margin-bottom: 6px; }
+  footer { color: var(--muted); font-size: 0.9em; margin-top: 36px; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Monatskasse</h1>
+<p class="lead">Das Haushaltsbuch für iPhone und iPad. Hier findest du Antworten auf häufige Fragen und erreichst uns, wenn etwas nicht klappt.</p>
+
+<section class="kontakt">
+  <p><strong>Kontakt</strong></p>
+  <p>Schreib uns an <a href="mailto:maxi.ruhl@hotmail.de">maxi.ruhl@hotmail.de</a>. Wenn etwas nicht wie erwartet funktioniert, hilft ein Diagnosebericht: in der App unter <em>Verwalten → iCloud-Sync → Diagnose teilen</em>. Er enthält keine Inhalte deiner Buchungen.</p>
+</section>
+
+<h2>Häufige Fragen</h2>
+
+<details>
+  <summary>Wie kommen meine Einträge auf mein iPad?</summary>
+  <div>
+    <p>Monatskasse gleicht deine Daten über deine iCloud ab. Dafür musst du auf beiden Geräten mit demselben Apple Account angemeldet sein, und iCloud darf für Monatskasse nicht ausgeschaltet sein (iOS-Einstellungen → dein Name → iCloud → Apps, die iCloud verwenden).</p>
+    <p>Der erste Abgleich kann ein paar Minuten dauern. Den aktuellen Stand siehst du in der App unter <em>Verwalten → iCloud-Sync</em>.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Wie werden Zahlungen mit Apple Pay automatisch erfasst?</summary>
+  <div>
+    <p>Das richtest du einmal in der Kurzbefehle-App ein. In Monatskasse führt dich <em>Verwalten → Apple Pay automatisch erfassen</em> durch die Schritte:</p>
+    <ol>
+      <li>Öffne die Kurzbefehle-App, wechsle zu „Automation“ und tippe auf das Plus.</li>
+      <li>Wähle „Wallet“ (auf älteren Systemen „Transaktion“) und die Karten, die erfasst werden sollen.</li>
+      <li>Stelle „Sofort ausführen“ ein, damit nicht bei jedem Einkauf eine Rückfrage kommt.</li>
+      <li>Füge die Aktion „Ausgabe erfassen“ hinzu und verbinde Betrag, Händler und Karte mit den Werten aus dem Kurzbefehl.</li>
+    </ol>
+  </div>
+</details>
+
+<details>
+  <summary>Warum steht eine Zahlung unter „Zu prüfen“?</summary>
+  <div>
+    <p>Die Automation von iOS meldet auch Zahlungen, die abgelehnt wurden. Automatisch erfasste Zahlungen landen deshalb zuerst unter „Zu prüfen“ und zählen erst nach deiner Bestätigung zur Monatssumme.</p>
+    <p>Korrigierst du dabei Kategorie oder Zahlart, merkt sich Monatskasse den Händler und ordnet ihn beim nächsten Einkauf selbst richtig zu. Löst die Automation zweimal aus, wird derselbe Betrag beim selben Händler innerhalb von fünf Minuten nur einmal erfasst.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Wie lege ich Fixkosten wie Miete oder Abos an?</summary>
+  <div>
+    <p>Beim Erfassen einer Ausgabe den Schalter „Als Fixkosten anlegen“ einschalten, oder unter <em>Verwalten → Fixkosten</em> auf das Plus tippen. Du wählst, ob sie täglich, wöchentlich, monatlich oder jährlich anfallen. Monatskasse bucht sie dann pünktlich von selbst.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Kann ich das Budget für einen einzelnen Monat ändern?</summary>
+  <div>
+    <p>Ja. Tippe in der Übersicht auf das Regler-Symbol im Budget-Ring. Das Standardbudget für alle Monate stellst du unter <em>Verwalten → Monatsbudget</em> ein.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Wie sichere oder exportiere ich meine Daten?</summary>
+  <div>
+    <p>Unter <em>Verwalten → Exportieren &amp; sichern</em>: als Tabelle für Numbers oder Excel, oder als vollständige Sicherung aller Buchungen, Kategorien, Zahlarten, Fixkosten und Budgets.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Wie schütze ich die App mit Face ID?</summary>
+  <div>
+    <p>Unter <em>Verwalten → App sperren</em>. Die App verlangt dann eine Bestätigung, wenn du sie nach mehr als einer Minute im Hintergrund wieder öffnest.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Wie lösche ich alle meine Daten?</summary>
+  <div>
+    <p>Löschst du die App, werden die Daten auf diesem Gerät entfernt. Die Daten in iCloud löschst du in den iOS-Einstellungen unter deinem Namen → „iCloud“ → „Speicher verwalten“ → „Monatskasse“.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Verbindet sich Monatskasse mit meiner Bank?</summary>
+  <div>
+    <p>Nein. Monatskasse ist ein persönliches Haushaltsbuch. Die App braucht keine Bankzugangsdaten, verbindet sich mit keiner Bank und bewegt kein Geld.</p>
+  </div>
+</details>
+
+<footer>
+  <p><a href="datenschutz.html">Datenschutzerklärung</a> · © 2026 Maximilian Ruhl</p>
+</footer>
+
+</main>
+</body>
+</html>
