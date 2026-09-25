@@ -270,7 +270,9 @@
   .mk-row.no { margin-top: 6px; }
   .mk-tile.no::after, .mk-row.no::after { content: "✕"; position: absolute; top: -7px; right: -7px; width: 20px; height: 20px; border-radius: 50%; background: #ef4444; color: #fff; display: grid; place-items: center; font-size: 0.7rem; }
   .mk-var { display: inline-block; background: #0a84ff; color: #fff; border-radius: 6px; padding: 0 6px; font-weight: 600; }
-  .mk-app { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; background: #f8c94a; color: #8a5a12; font-size: 0.8rem; flex: none; }
+  /* Das App-Symbol, wie Kurzbefehle es zeigt – im Dunkelmodus die dunkle Variante */
+  .mk-app { display: inline-block; width: 22px; height: 22px; flex: none; vertical-align: -6px; }
+  .mk-app img { display: block; width: 100%; height: 100%; border-radius: 22.4%; }
   .mk-sentence { background: var(--mk-row); border-radius: 11px; padding: 9px 11px; line-height: 1.9; }
   .hint { outline: 2px solid var(--accent); outline-offset: 2px; }
   @media (max-width: 920px) { .guide { grid-template-columns: 1fr; } }
@@ -662,7 +664,7 @@
           <div class="mk-trigger">Wenn <span class="mk-any">Jede Karte</span> angetippt wird</div>
           <div class="mk-row">Automation<span class="mk-switch"></span></div>
           <div class="mk-search">Ausgabe erfassen</div>
-          <div class="mk-row hint"><span class="mk-app">€</span>Ausgabe erfassen</div>
+          <div class="mk-row hint"><picture class="mk-app"><source srcset="bilder/icon-dunkel.png" media="(prefers-color-scheme: dark)"><img src="bilder/icon.png" width="22" height="22" alt=""></picture>Ausgabe erfassen</div>
         </div>
       </div>
 
@@ -670,7 +672,7 @@
         <h3>Felder verbinden</h3>
         <p>Tippe in der Aktion auf das blasse „Betrag“, über der Tastatur auf „Variable auswählen“ und dann auf „Transaktion“. Tippe das blaue „Transaktion“ an und wähle „Betrag“. Genauso verbindest du „Händler“ mit Transaktion › „Händler“ und „Karte“ mit Transaktion › „Karte“.</p>
         <div class="mk" aria-hidden="true">
-          <div class="mk-sentence"><span class="mk-app">€</span> Ausgabe über <span class="mk-var">Betrag</span> bei <span class="mk-var">Händler</span> mit <span class="mk-var">Karte</span> erfassen</div>
+          <div class="mk-sentence"><picture class="mk-app"><source srcset="bilder/icon-dunkel.png" media="(prefers-color-scheme: dark)"><img src="bilder/icon.png" width="22" height="22" alt=""></picture> Ausgabe über <span class="mk-var">Betrag</span> bei <span class="mk-var">Händler</span> mit <span class="mk-var">Karte</span> erfassen</div>
           <div class="mk-map"><b>Betrag</b><small>Transaktion ›</small><span class="mk-var">Betrag</span></div>
           <div class="mk-map"><b>Händler</b><small>Transaktion ›</small><span class="mk-var">Händler</span></div>
           <div class="mk-map"><b>Karte</b><small>Transaktion ›</small><span class="mk-var">Karte</span></div>
@@ -736,7 +738,7 @@
         <div class="mk" aria-hidden="true">
           <b>Los gehts</b>
           <div class="mk-tiles"><div class="mk-tile hint">Neuen Kurzbefehl erstellen</div></div>
-          <div class="mk-row no"><span class="mk-app">€</span><span>Monatskasse<small>Neue Ausgabe, Monatsstand</small></span></div>
+          <div class="mk-row no"><picture class="mk-app"><source srcset="bilder/icon-dunkel.png" media="(prefers-color-scheme: dark)"><img src="bilder/icon.png" width="22" height="22" alt=""></picture><span>Monatskasse<small>Neue Ausgabe, Monatsstand</small></span></div>
         </div>
       </div>
 
@@ -745,7 +747,7 @@
         <p>Tippe unten auf „Aktionen suchen“, gib „Ausgabe erfassen“ ein und tippe auf die Aktion von Monatskasse.</p>
         <div class="mk" aria-hidden="true">
           <div class="mk-search">Ausgabe erfassen</div>
-          <div class="mk-row hint"><span class="mk-app">€</span>Ausgabe erfassen</div>
+          <div class="mk-row hint"><picture class="mk-app"><source srcset="bilder/icon-dunkel.png" media="(prefers-color-scheme: dark)"><img src="bilder/icon.png" width="22" height="22" alt=""></picture>Ausgabe erfassen</div>
         </div>
       </div>
 
@@ -753,7 +755,7 @@
         <h3>Felder verbinden</h3>
         <p>Tippe in der Aktion auf das blaue „Betrag“ und dann auf „Kurzbefehleingabe“. Tippe das blaue „Kurzbefehleingabe“ noch einmal an und wähle „Betrag“. Genauso verbindest du „Händler“ mit „Händlername“ und „Karte“ mit „Karte“.</p>
         <div class="mk" aria-hidden="true">
-          <div class="mk-sentence"><span class="mk-app">€</span> Ausgabe über <span class="mk-var">Betrag</span> bei <span class="mk-var">Händlername</span> mit <span class="mk-var">Karte</span> erfassen</div>
+          <div class="mk-sentence"><picture class="mk-app"><source srcset="bilder/icon-dunkel.png" media="(prefers-color-scheme: dark)"><img src="bilder/icon.png" width="22" height="22" alt=""></picture> Ausgabe über <span class="mk-var">Betrag</span> bei <span class="mk-var">Händlername</span> mit <span class="mk-var">Karte</span> erfassen</div>
         </div>
       </div>
 
