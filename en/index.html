@@ -276,6 +276,32 @@
   .hint { outline: 2px solid var(--accent); outline-offset: 2px; }
   @media (max-width: 920px) { .guide { grid-template-columns: 1fr; } }
 
+  /* Weg je nach iOS-Version: iOS 27 hat Automationen zu Kurzbefehlen mit Auslöser gemacht */
+  .os-radio { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+  .os-switch { display: flex; width: max-content; max-width: 100%; margin: 40px auto 0; padding: 4px; gap: 4px; background: var(--card); border: 1px solid var(--line); border-radius: 999px; box-shadow: var(--shadow); }
+  .os-switch label { padding: 8px 24px; border-radius: 999px; font-weight: 600; color: var(--muted); cursor: pointer; font-variant-numeric: tabular-nums; }
+  #ios27:checked ~ .os-switch [for="ios27"], #ios26:checked ~ .os-switch [for="ios26"] { background: var(--accent); color: #fff; }
+  @media (prefers-color-scheme: dark) { #ios27:checked ~ .os-switch [for="ios27"], #ios26:checked ~ .os-switch [for="ios26"] { color: #0b0b16; } }
+  #ios27:focus-visible ~ .os-switch [for="ios27"], #ios26:focus-visible ~ .os-switch [for="ios26"] { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .os-hint { text-align: center; color: var(--muted); font-size: 0.95rem; margin: 12px 0 0; }
+  #ios27:checked ~ .guide.ios26, #ios26:checked ~ .guide.ios27 { display: none; }
+  .guide.ios27, .guide.ios26 { margin-top: 28px; }
+  .guide > .gstep.cards:nth-child(odd) { grid-column: 1 / -1; }
+  .mk-row .chev { margin-left: auto; color: var(--mk-sub); }
+  .mk-circle { justify-self: center; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--mk-row); font-weight: 600; flex: none; }
+  .mk-bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .mk-pill { background: var(--mk-row); border-radius: 999px; padding: 5px 13px; font-weight: 600; }
+  .mk-faded { opacity: 0.55; }
+  .mk-token { display: inline-block; background: rgba(120, 120, 128, 0.22); border-radius: 6px; padding: 0 6px; margin-right: 6px; }
+  .mk-trigger { background: var(--mk-row); border-radius: 11px; padding: 9px 11px; line-height: 1.9; }
+  .mk-any { display: inline-block; color: #0a84ff; background: rgba(10, 132, 255, 0.14); border-radius: 6px; padding: 0 6px; }
+  .mk-switch { margin-left: auto; width: 36px; height: 22px; border-radius: 999px; background: #34c759; position: relative; flex: none; }
+  .mk-switch::after { content: ""; position: absolute; top: 2px; right: 2px; width: 18px; height: 18px; border-radius: 50%; background: #fff; }
+  .mk-map { display: flex; align-items: center; gap: 7px; background: var(--mk-row); border-radius: 11px; padding: 7px 11px; }
+  .mk-map b { margin-right: auto; }
+  .mk-map small { color: var(--mk-sub); font-size: 0.78rem; white-space: nowrap; }
+  .mk-map .mk-var { white-space: nowrap; }
+
   /* Kontakt */
   .kontakt { padding-top: 0; }
   .kontakt-card {
@@ -565,10 +591,100 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Set up Apple Pay</h2>
-      <p>Once, in the Shortcuts app, in seven steps. On iPhone, My Budget walks you through the same steps under <em>Manage → Log Apple Pay Automatically</em>.</p>
+      <p>Once, in the Shortcuts app. The steps depend on your iOS version – on iPhone, My Budget shows you the right ones under <em>Manage → Log Apple Pay Automatically</em>.</p>
     </div>
 
-    <div class="guide">
+    <input class="os-radio" type="radio" name="ios" id="ios27" checked>
+    <input class="os-radio" type="radio" name="ios" id="ios26">
+    <script>
+      // Safari reports the iOS version in "Version/…". On iOS 26 or earlier the
+      // matching steps show right away; otherwise iOS 27 stays selected.
+      (function () {
+        var m = /(iPhone|iPad|iPod).+Version\/(\d+)/.exec(navigator.userAgent);
+        if (m && +m[2] < 27) document.getElementById("ios26").checked = true;
+      })();
+    </script>
+    <div class="os-switch">
+      <label for="ios27">iOS 27</label>
+      <label for="ios26">iOS 26</label>
+    </div>
+    <p class="os-hint">To find your version, open Settings and go to “General” → “About”.</p>
+
+    <div class="guide ios27">
+      <div class="gstep">
+        <h3>Open Shortcuts</h3>
+        <p>Open the Shortcuts app and tap “Automation” in the Library – if you land in a list, tap ‹ in the top left first. Then tap ＋ at the bottom.</p>
+        <div class="mk" aria-hidden="true">
+          <b>Library</b>
+          <div class="mk-row">All Shortcuts<span class="chev">›</span></div>
+          <div class="mk-row">Gallery<span class="chev">›</span></div>
+          <div class="mk-row hint">Automation<span class="chev">›</span></div>
+          <span class="mk-circle hint">＋</span>
+        </div>
+      </div>
+
+      <div class="gstep">
+        <h3>Build it yourself</h3>
+        <p>At the top, the app offers to describe the shortcut for you. Tap “Edit” in the top right instead.</p>
+        <div class="mk" aria-hidden="true">
+          <div class="mk-bar"><span class="mk-circle">‹</span><b>New Shortcut</b><span class="mk-pill hint">Edit</span></div>
+          <div class="mk-search mk-faded">Describe a shortcut</div>
+        </div>
+      </div>
+
+      <div class="gstep">
+        <h3>The “Wallet” trigger</h3>
+        <p>Tap the search field at the bottom, then “Automation”. Type “Wallet” and choose “Wallet – When I tap a Wallet Card or Pass”.</p>
+        <p class="warn">Without “Automation”, the search only finds actions, not the trigger – and the automation never runs when you pay.</p>
+        <div class="mk" aria-hidden="true">
+          <div class="mk-search"><span class="mk-token hint">Automation</span>Wallet</div>
+          <div class="mk-row hint"><span><b>Wallet</b><small>“When I tap a Wallet Card or Pass”</small></span></div>
+        </div>
+      </div>
+
+      <div class="gstep">
+        <h3>Add the action</h3>
+        <p>The top now reads “When Any Card is tapped” – leave it that way, with “Automation” on. Type “Log Expense” in the search field at the bottom and tap the My Budget action.</p>
+        <div class="mk" aria-hidden="true">
+          <div class="mk-trigger">When <span class="mk-any">Any Card</span> is tapped</div>
+          <div class="mk-row">Automation<span class="mk-switch"></span></div>
+          <div class="mk-search">Log Expense</div>
+          <div class="mk-row hint"><span class="mk-app">$</span>Log Expense</div>
+        </div>
+      </div>
+
+      <div class="gstep">
+        <h3>Connect the fields</h3>
+        <p>In the action, tap the faded “Amount”, then “Select Variable” above the keyboard, and then “Transaction”. Tap the blue “Transaction” and choose “Amount”. Connect “Merchant” to Transaction › “Merchant” and “Card” to Transaction › “Card or Pass” the same way.</p>
+        <div class="mk" aria-hidden="true">
+          <div class="mk-sentence"><span class="mk-app">$</span> Log <span class="mk-var">Amount</span> at <span class="mk-var">Merchant</span> with <span class="mk-var">Card</span></div>
+          <div class="mk-map"><b>Amount</b><small>Transaction ›</small><span class="mk-var">Amount</span></div>
+          <div class="mk-map"><b>Merchant</b><small>Transaction ›</small><span class="mk-var">Merchant</span></div>
+          <div class="mk-map"><b>Card</b><small>Transaction ›</small><span class="mk-var">Card or Pass</span></div>
+        </div>
+      </div>
+
+      <div class="gstep">
+        <h3>Done</h3>
+        <p>Tap ‹ in the top left – it saves automatically. “Automation” now lists “When I tap a Wallet pass or payment card”. The next time you pay with your iPhone, the payment appears in My Budget under “To Review”.</p>
+        <p class="warn">Don’t try it with ▶: without a real payment there’s no amount, and the action reports an error. To try it out, use the test expense in My Budget under <em>Manage → Log Apple Pay Automatically</em>.</p>
+        <div class="mk" aria-hidden="true">
+          <b>Automation</b>
+          <div class="mk-row"><span><b>When I tap a Wallet pass or payment card</b><small>Log Expense</small></span><span class="mk-switch"></span></div>
+        </div>
+      </div>
+
+      <div class="gstep cards">
+        <h3>Assign your cards</h3>
+        <p>Every card you’ve paid with appears in My Budget under “Your Cards”. Choose its payment method once – after that, the app files every payment made with that card correctly.</p>
+        <div class="mk" aria-hidden="true">
+          <div class="mk-row">Visa Debit<span class="end">Checking</span></div>
+          <div class="mk-row">Amex Blue<span class="end" style="color: #f59e0b">Assign</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="guide ios26">
       <div class="gstep">
         <h3>Open Shortcuts</h3>
         <p>Open the Shortcuts app and tap “Automation” at the bottom. Then tap “New Automation” – if you already have automations, tap ＋ in the top right.</p>
@@ -631,10 +747,12 @@
       <div class="gstep">
         <h3>Done</h3>
         <p>Tap ✓ in the top right. The next time you pay with your iPhone at checkout, the payment appears in My Budget under “To Review”.</p>
+        <p class="warn">Don’t try it with ▶: without a real payment there’s no amount, and the action reports an error. To try it out, use the test expense in My Budget under <em>Manage → Log Apple Pay Automatically</em>.</p>
         <div class="mk" aria-hidden="true">
           <div class="mk-row"><span><b>1 payment to review</b><small>Grocery Store · $23.40</small></span></div>
         </div>
       </div>
+
 
       <div class="gstep cards">
         <h3>Assign your cards</h3>
@@ -668,7 +786,7 @@
         <summary>How are Apple Pay payments logged automatically?</summary>
         <div>
           <p>With an automation that you set up once in the Shortcuts app. The steps are above under <a href="#apple-pay">Set up Apple Pay</a>; in the app, <em>Manage → Log Apple Pay Automatically</em> walks you through the same steps.</p>
-          <p>Step 4 is important: choose “Create New Shortcut”, not “My Budget” further down – otherwise the connected fields are missing.</p>
+          <p>On iOS 27, step 3 is the one that matters: tap the “Automation” filter first, or the search won’t find the “Wallet” trigger. On iOS 26, it’s step 4: choose “Create New Shortcut”, not “My Budget” further down – otherwise the connected fields are missing.</p>
         </div>
       </details>
 
@@ -685,10 +803,18 @@
         <div>
           <ul>
             <li>Only paying with your iPhone at checkout triggers the automation – not paying with Apple Watch, and not online purchases.</li>
-            <li>Check that “Run Immediately” is selected in the automation.</li>
+            <li>On iOS 27, “Automation” must be turned on in the trigger; on iOS 26, “Run Immediately” must be selected in the automation.</li>
             <li>Wallet needs cellular data: iOS Settings → “Cellular” → turn on “Wallet”.</li>
             <li>In My Budget, <em>Manage → Log Apple Pay Automatically</em> shows at the top when a payment last arrived and whether the merchant and card came with it.</li>
           </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Trying it with ▶ shows an error – is something wrong?</summary>
+        <div>
+          <p>No. With ▶, the automation runs without a real payment, so Wallet provides no amount and My Budget reports an error. With a real payment made with your iPhone, the amount, merchant and card come along.</p>
+          <p>To try it out, <em>Manage → Log Apple Pay Automatically → Create Test Expense</em> creates a payment that arrives under “To Review” just like a real one.</p>
         </div>
       </details>
 
