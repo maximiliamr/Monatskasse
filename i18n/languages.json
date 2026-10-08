@@ -1,0 +1,36 @@
+{
+  "site": "https://monatskasse.de",
+  "defaultLanguage": "de",
+  "fallbackLanguage": "en",
+  "xDefault": "en",
+  "developer": "Maximilian Ruhl",
+  "email": "maxi.ruhl@hotmail.de",
+  "minimumOS": "18.5",
+  "appStoreId": null,
+  "languages": [
+    {
+      "code": "de",
+      "hreflang": "de",
+      "ogLocale": "de_DE",
+      "name": "Deutsch",
+      "appName": "Monatskasse",
+      "privacyPolicy": "de",
+      "shareImage": {
+        "headline": "Wie viel ist diesen Monat noch übrig?",
+        "pills": ["Kostenlos", "Ohne Konto", "Ohne Tracking"]
+      }
+    },
+    {
+      "code": "en",
+      "hreflang": "en",
+      "ogLocale": "en_US",
+      "name": "English",
+      "appName": "My Budget",
+      "privacyPolicy": "en",
+      "shareImage": {
+        "headline": "How much is left this month?",
+        "pills": ["Free", "No account", "No tracking"]
+      }
+    }
+  ]
+}

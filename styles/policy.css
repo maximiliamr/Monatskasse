@@ -1,0 +1,38 @@
+/* Datenschutzerklärung: gestaltet wie in der App (content/privacy/*.html), nur unter der Leiste der Seite. */
+.policy {
+  --p-text: #1c1c1e;
+  --p-muted: #6c6c70;
+  --p-line: rgba(60, 60, 67, 0.18);
+  --p-accent: #5B5BD6;
+  --p-box: rgba(91, 91, 214, 0.08);
+  /* Die App rechnet ohne border-box: 680 px Text plus Rand. */
+  box-sizing: content-box;
+  max-width: 680px; margin: 0 auto; padding: 28px 20px 56px;
+  color: var(--p-text);
+  font-size: 16px;
+  font: -apple-system-body;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: auto;
+}
+@media (prefers-color-scheme: dark) {
+  .policy {
+    --p-text: #f2f2f7;
+    --p-muted: #a1a1a8;
+    --p-line: rgba(235, 235, 245, 0.16);
+    --p-accent: #8C8CF2;
+    --p-box: rgba(140, 140, 242, 0.12);
+  }
+}
+.policy h1 { font-size: 1.75em; line-height: 1.2; margin: 0 0 4px; letter-spacing: -0.01em; }
+.policy h2 { font-size: 1.1em; margin: 32px 0 8px; }
+.policy p, .policy li { margin: 0 0 10px; }
+.policy ul { padding-left: 1.2em; margin: 0 0 10px; }
+.policy .stand { color: var(--p-muted); margin-bottom: 22px; }
+.policy .kurz { background: var(--p-box); border-radius: 14px; padding: 16px 18px; margin: 0 0 8px; }
+.policy .kurz h2 { margin-top: 0; }
+.policy .kurz ul { margin-bottom: 0; }
+.policy a { color: var(--p-accent); }
+.policy address { font-style: normal; }
+.policy hr { border: 0; border-top: 1px solid var(--p-line); margin: 32px 0 16px; }
+.policy footer { color: var(--p-muted); font-size: 0.9em; border: 0; padding: 0; }
