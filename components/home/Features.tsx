@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import { image, type Language } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/types";
 import { Icon, type IconName } from "../IconSprite";
+import Phone from "../Phone";
 
 // Aufbau der vier Zeilen, gleich in jeder Sprache: Symbol, Farbe, Bild, Seite des Bilds.
 const rows: { icon: IconName; color?: string; image: string; flip: boolean }[] = [
@@ -45,7 +46,7 @@ export default function Features({ lang, t }: { lang: Language; t: Dictionary })
                 </ul>
               </div>
               <figure className="media">
-                <img className="shot" src={image(lang, layout.image)} width="660" height="1434" loading="lazy" decoding="async" alt={row.alt} />
+                <Phone src={image(lang, layout.image)} alt={row.alt} />
               </figure>
             </article>
           );

@@ -1,6 +1,7 @@
 import { image, type Language } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/types";
 import { Icon } from "../IconSprite";
+import Phone from "../Phone";
 
 export default function Hero({ lang, t }: { lang: Language; t: Dictionary }) {
   return (
@@ -30,7 +31,7 @@ export default function Hero({ lang, t }: { lang: Language; t: Dictionary }) {
           </div>
         </div>
         <div className="hero-visual">
-          <img className="shot hero-phone" src={image(lang, "overview.jpg")} width="660" height="1434" fetchPriority="high" alt={t.hero.phoneAlt} />
+          <Phone className="hero-phone" src={image(lang, "overview.jpg")} alt={t.hero.phoneAlt} priority />
           <img className="hero-widget" src={image(lang, "widget-small.png")} width="353" height="353" alt={t.hero.widgetAlt} />
         </div>
       </div>

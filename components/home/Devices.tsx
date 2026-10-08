@@ -1,6 +1,7 @@
 import { image, type Language } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/types";
 import { Icon } from "../IconSprite";
+import Tablet from "../Tablet";
 
 export default function Devices({ lang, t }: { lang: Language; t: Dictionary }) {
   const { widgets, ipad } = t.devices;
@@ -30,7 +31,7 @@ export default function Devices({ lang, t }: { lang: Language; t: Dictionary }) 
             </p>
             <h3>{ipad.title}</h3>
             <p dangerouslySetInnerHTML={{ __html: ipad.text }} />
-            <img className="ipad" src={image(lang, "ipad.jpg")} width="1032" height="1376" loading="lazy" decoding="async" alt={ipad.alt} />
+            <Tablet className="ipad" src={image(lang, "ipad.jpg")} alt={ipad.alt} />
           </div>
         </div>
       </div>

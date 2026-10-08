@@ -1,5 +1,5 @@
-/* Monatskasse – Gestaltung der Seite. Unverändert aus der ersten Fassung übernommen;
-   neu sind nur Sprachwahl, Sprachhinweis und 404-Seite am Ende. */
+/* Monatskasse – Gestaltung der Seite. Aus der ersten Fassung übernommen; neu sind
+   Sprachwahl, Sprachhinweis, 404-Seite und der iPhone-Rahmen am Ende. */
 :root {
   --bg: #ffffff;
   --bg-alt: #f4f4f8;
@@ -118,14 +118,6 @@ svg.i { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor;
   filter: drop-shadow(0 26px 34px rgba(0, 0, 0, 0.55));
 }
 
-/* Screenshots */
-.shot {
-  display: block; height: auto; background: #000;
-  border-radius: 13% / 5.98%;
-  box-shadow: 0 0 0 1px var(--ring), 0 44px 80px -34px rgba(12, 10, 40, 0.5), 0 18px 36px -26px rgba(12, 10, 40, 0.35);
-}
-.hero .shot { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16), 0 50px 90px -30px rgba(0, 0, 0, 0.8); }
-
 /* Abschnitte */
 section { padding: 104px 0; }
 .alt { background: var(--bg-alt); }
@@ -148,7 +140,6 @@ section { padding: 104px 0; }
   content: ""; position: absolute; width: 92%; aspect-ratio: 1; border-radius: 50%;
   background: radial-gradient(closest-side, color-mix(in srgb, var(--k) 30%, transparent), transparent);
 }
-.media .shot { position: relative; width: min(300px, 74vw); }
 
 /* Widgets und iPad */
 .bento { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 56px; }
@@ -169,11 +160,7 @@ section { padding: 104px 0; }
 .widget-stage img { width: min(100%, 430px); filter: drop-shadow(0 26px 40px rgba(0, 0, 0, 0.42)); }
 .card-ipad { background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow); }
 .card-ipad p:not(.kicker) { color: var(--muted); }
-.ipad {
-  display: block; width: 84%; margin: 40px auto -36%;
-  border-radius: 3.2% / 2.4%;
-  box-shadow: 0 0 0 1px var(--ring), 0 30px 60px -28px rgba(12, 10, 40, 0.45);
-}
+.ipad { display: block; width: 84%; margin: 40px auto -36%; }
 
 /* Weitere Funktionen */
 .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px; }
@@ -391,3 +378,104 @@ footer { border-top: 1px solid var(--line); padding: 36px 0 52px; color: var(--m
   .lang-hint .wrap { flex-wrap: wrap; row-gap: 6px; }
   .lang-hint p { flex-basis: calc(100% - 76px); }
 }
+
+/* iPhone-Rahmen – wie auf sayumi.app, nachgebaut nach dem iPhone 17 Pro: feiner Titanrahmen,
+   schmaler schwarzer Glasrand, Bildschirmecken im iOS-Radius (konzentrisch zur Aussenkante),
+   Dynamic Island und Tasten. Alle Masse hängen an der Breite des Telefons selbst. */
+.phone, .tablet {
+  --metal: linear-gradient(150deg, #e4e2ea 0%, #a29fac 18%, #f6f5f9 34%, #8b8896 52%, #cfccd6 70%, #77747f 86%, #bdbac5 100%);
+}
+.phone {
+  --rim: 2.5px;
+  position: relative;
+  border: var(--rim) solid transparent;
+  /* Aussen = Bildschirmradius + Glasrand, damit die Ecken parallel laufen */
+  border-radius: 15.3% / 7.1%;
+  background: linear-gradient(#050507, #050507) padding-box, var(--metal) border-box;
+  box-shadow: 0 0 0 0.5px rgba(30, 24, 70, 0.25), 0 44px 80px -34px rgba(12, 10, 40, 0.5), 0 18px 36px -26px rgba(12, 10, 40, 0.35);
+}
+.hero .phone { box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.5), 0 50px 90px -30px rgba(0, 0, 0, 0.8); }
+/* Tasten: links Action-Taste und Lautstärke, rechts Seitentaste und Kamerasteuerung */
+.phone::before, .phone::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 3px; pointer-events: none;
+}
+.phone::before {
+  left: calc(-1 * var(--rim) - 2px);
+  background: linear-gradient(to bottom,
+    transparent 17.5%, #9f9caa 17.5%, #d8d6de 20%, #9f9caa 22.5%,
+    transparent 22.5%, transparent 26%, #9f9caa 26%, #d8d6de 30%, #9f9caa 34%,
+    transparent 34%, transparent 36%, #9f9caa 36%, #d8d6de 40%, #9f9caa 44%, transparent 44%);
+  border-radius: 2px 0 0 2px;
+}
+.phone::after {
+  right: calc(-1 * var(--rim) - 2px);
+  background: linear-gradient(to bottom,
+    transparent 28%, #9f9caa 28%, #d8d6de 34%, #9f9caa 40%, transparent 40%,
+    transparent 57%, #8e8b98 57%, #c4c1cb 60%, #8e8b98 63%, transparent 63%);
+  border-radius: 0 2px 2px 0;
+}
+.phone__screen {
+  position: relative; overflow: hidden; isolation: isolate;
+  /* Schwarzer Glasrand: 1,8 % der Telefonbreite */
+  margin: 1.8%;
+  /* iOS-Bildschirmecke: 55 pt bei 402 pt Breite */
+  border-radius: 13.7% / 6.3%;
+  background: #000;
+  aspect-ratio: 1206 / 2622;
+}
+.phone__screen::before {
+  /* Hauch von Glas: feiner Lichtrand an der Bildschirmkante */
+  content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit; pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+.phone__screen::after {
+  /* Dynamic Island – mit Kameralinse und hauchfeinem Rand, damit sie auch auf dunklen
+     Aufnahmen zu erkennen ist (wie auf Apples Produktbildern) */
+  content: ""; position: absolute; z-index: 1; top: 1.27%; left: 50%; width: 31.1%; height: 4.2%;
+  transform: translateX(-50%); border-radius: 999px;
+  background:
+    radial-gradient(circle at 80.5% 50%, rgba(96, 108, 168, 0.6) 0, rgba(32, 36, 62, 0.95) 2.2%, #08080d 4.4%, transparent 5.4%),
+    #000;
+  box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.09);
+}
+.phone__screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-phone.phone { display: block; }
+.media .phone { position: relative; width: min(300px, 74vw); }
+
+/* iPad-Rahmen – passend zum iPhone, nachgebaut nach dem iPad Pro 13″: gleichmässig schmaler
+   schwarzer Rand (gut 4 % der Breite), Silberrahmen, Bildschirmecken im iPadOS-Radius,
+   Frontkamera im Rand (beim iPad Pro an der langen Seite) und Lautstärketasten. */
+.tablet {
+  --rim: 2px;
+  position: relative;
+  border: var(--rim) solid transparent;
+  /* Aussen = Bildschirmradius + Rand, damit die Ecken parallel laufen */
+  border-radius: 5.9% / 4.4%;
+  background: linear-gradient(#050507, #050507) padding-box, var(--metal) border-box;
+  box-shadow: 0 0 0 0.5px rgba(30, 24, 70, 0.25), 0 30px 60px -28px rgba(12, 10, 40, 0.45);
+}
+.tablet::before {
+  /* Lautstärketasten rechts oben */
+  content: ""; position: absolute; top: 0; bottom: 0; right: calc(-1 * var(--rim) - 2px); width: 3px; pointer-events: none;
+  background: linear-gradient(to bottom,
+    transparent 7%, #9f9caa 7%, #d8d6de 9%, #9f9caa 11%, transparent 11%,
+    transparent 12.5%, #9f9caa 12.5%, #d8d6de 14.5%, #9f9caa 16.5%, transparent 16.5%);
+  border-radius: 0 2px 2px 0;
+}
+.tablet::after {
+  /* Frontkamera im Rand */
+  content: ""; position: absolute; top: 50%; right: 1.65%; width: 0.9%; aspect-ratio: 1; transform: translate(50%, -50%);
+  border-radius: 50%; background: radial-gradient(circle at 40% 40%, #3a3f63 0, #15172a 45%, #050507 75%);
+}
+.tablet__screen {
+  position: relative; overflow: hidden; isolation: isolate;
+  margin: 4.1%;
+  border-radius: 1.85% / 1.4%;
+  background: #000;
+  aspect-ratio: 1032 / 1376;
+}
+.tablet__screen::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+.tablet__screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
