@@ -5,7 +5,7 @@ import type { Dictionary } from "../types";
 const en: Dictionary = {
   meta: {
     title: "My Budget – Monthly Budget Planner for iPhone and iPad",
-    description: "My Budget is a free budget planner for iPhone and iPad: log expenses in seconds, track recurring bills automatically – no account, no ads, no tracking.",
+    description: "My Budget is a free budget planner for iPhone and iPad: log expenses in seconds, track recurring bills automatically. No account, no ads, no tracking.",
     ogTitle: "My Budget – Monthly Budget Planner for iPhone and iPad",
     ogDescription: "Budget, expenses and recurring bills at a glance. No account, no ads, no tracking.",
     ogImageAlt: "My Budget on iPhone: overview and insights for a month",
@@ -37,7 +37,7 @@ const en: Dictionary = {
   hero: {
     eyebrow: "Budget planner for iPhone and iPad",
     title: "How much is left this month?",
-    lead: "My Budget shows you at a glance what you’ve spent and what’s left until the end of the month. Log expenses in seconds, track recurring bills automatically and keep an eye on your budget.",
+    lead: "My Budget shows you what you’ve spent and what’s left until the end of the month. You log an expense in seconds, and recurring bills log themselves.",
     pills: ["No account", "No ads", "No tracking"],
     ctaFeatures: "See Features",
     ctaHelp: "Help & Contact",
@@ -54,11 +54,11 @@ const en: Dictionary = {
         title: "Logged in seconds",
         text: "Amount, title, done. My Budget suggests frequent entries as you type, including category and payment method.",
         checks: [
-          "Snap a photo of a receipt: the total, date and items are recognized on your device – with an arithmetic check, sales tax included, so the amounts add up",
-          "Shared a bill? Divide it by the number of people or enter your share – even afterward, for example for an Apple Pay payment",
-          "Paid abroad? Log the amount in the local currency – My Budget converts it at the European Central Bank’s daily rate and keeps what you paid",
-          "Already logged? If a scanned receipt belongs to a recurring bill or an Apple Pay payment that’s already there, My Budget offers to attach it there – instead of counting it twice",
-          "Business trip? Collect receipts and hand them to accounting as one report with a tap – a PDF with every receipt, a table and the original files. Recurring bills can be business expenses too, like a software subscription for work",
+          "Snap a photo of a receipt: the app reads the total, date and items on your device and checks that the amounts add up, sales tax included",
+          "Shared a bill? Divide it by the number of people or enter your share, even afterward for an Apple Pay payment",
+          "When you pay abroad, you log the amount in the local currency. My Budget converts it at the European Central Bank’s daily rate and keeps what you paid",
+          "If a scanned receipt belongs to a recurring bill or an Apple Pay payment that’s already there, My Budget offers to attach it instead of counting it twice",
+          "Business trip? Collect receipts and hand them to accounting as one report with a tap: a PDF with every receipt, plus a table and the original files. Recurring bills can be business expenses too, like a software subscription for work",
           "Also with Siri, with Shortcuts or with the button in Control Center",
         ],
         alt: "Check Receipt: a $18.76 receipt is recognized, the four items add up exactly to the total, and Groceries is suggested as the category.",
@@ -66,9 +66,9 @@ const en: Dictionary = {
       {
         kicker: "Automatic",
         title: "Apple Pay logs itself",
-        text: "Set up an automation in the Shortcuts app once – one for all your cards. After that, Apple Pay payments land in My Budget on their own, with amount, merchant and card.",
+        text: "Set up an automation in the Shortcuts app once, one for all your cards. After that, Apple Pay payments land in My Budget on their own, with amount, merchant and card.",
         checks: [
-          "The app walks you through the setup step by step – <a href=\"#apple-pay\">the guide is also right here</a>",
+          "The app walks you through the setup step by step. <a href=\"#apple-pay\">The guide is also right here</a>",
           "Every card gets its payment method: assign it once, and it’s always filed correctly",
           "To be safe, payments go to “To Review” first, because iOS also reports declined payments",
         ],
@@ -77,11 +77,11 @@ const en: Dictionary = {
       {
         kicker: "Insights",
         title: "See where your money goes",
-        text: "How does this month compare with last month? Where will you end up if things keep going like this? And where does the money actually go? My Budget shows you – tap, or touch and slide.",
+        text: "How does this month compare with last month? Where will you end up if things keep going like this? And where does the money actually go? My Budget shows you: tap, or touch and slide.",
         checks: [
           "The month day by day next to last month, with a forecast to the end of the month",
           "The history over three, six or twelve months, split into recurring bills and everyday spending",
-          "By category, payment method or merchant – each with its own page and every expense behind it",
+          "By category, payment method or merchant, each with its own page and every expense behind it",
           "Tap a month, and everything below shows just that month – down to the weekdays",
         ],
         alt: "Insights: $2,903.17 in October, 11 percent less than September by day 8, a forecast of $4,132 and so $868 under budget. Below, the history with an average of $3,963 and five of five months within budget.",
@@ -89,12 +89,12 @@ const en: Dictionary = {
       {
         kicker: "Expenses & Recurring",
         title: "Everything in its place",
-        text: "Every expense sorted by day, with category and payment method – and quickly found again with search. Add rent, insurance and subscriptions once, and My Budget logs them on time, all by itself.",
+        text: "Every expense sorted by day, with category and payment method, and quickly found again with search. Add rent, insurance and subscriptions once, and My Budget logs them on time, all by itself.",
         checks: [
           "Daily, weekly, monthly or yearly",
           "Spread over the month in the daily average instead of giving you a shock on the first",
           "A reminder one day before large recurring bills",
-          "In a foreign currency, too – each expense at the rate of its day",
+          "In a foreign currency, too, each expense at the rate of its day",
         ],
         alt: "Expenses by day: Groceries $142.60, Coffee $6.75, Gas $52.80, Lunch $16.50.",
       },
@@ -117,8 +117,8 @@ const en: Dictionary = {
     },
   },
   details: {
-    title: "Thoughtful down to the details",
-    intro: "Little things that make a difference every day.",
+    title: "The little things, too",
+    intro: "A few things you only notice when you need them.",
     tiles: [
       {
         title: "Your budget as a ring",
@@ -126,7 +126,7 @@ const en: Dictionary = {
       },
       {
         title: "Reminders when it matters",
-        text: "At 80 and 100 percent of your budget, a day before large recurring bills, and with a review at the start of each month. Nothing more.",
+        text: "At 80 and 100 percent of your budget, a day before large recurring bills, and with a review at the start of each month. Otherwise the app leaves you alone.",
       },
       {
         title: "Siri and Shortcuts",
@@ -134,7 +134,7 @@ const en: Dictionary = {
       },
       {
         title: "Your categories",
-        text: "Your own categories with emoji and color, plus your payment methods – from checking to cash.",
+        text: "Your own categories with emoji and color, plus your payment methods, from checking to cash.",
       },
       {
         title: "Export and backup",
@@ -171,7 +171,7 @@ const en: Dictionary = {
   },
   applePay: {
     title: "Set up Apple Pay",
-    intro: "Once, in the Shortcuts app. The steps depend on your iOS version – on iPhone, My Budget shows you the right ones under <em>Manage → Log Apple Pay Automatically</em>.",
+    intro: "Once, in the Shortcuts app. The steps depend on your iOS version. On iPhone, My Budget shows you the right ones under <em>Manage → Log Apple Pay Automatically</em>.",
     versions: ["iOS 27", "iOS 26"],
     osHint: "To find your version, open Settings and go to “General” → “About”.",
     quick: null,
@@ -298,15 +298,15 @@ const en: Dictionary = {
         a: "<p>With an automation that you set up once in the Shortcuts app. The steps are above under <a href=\"#apple-pay\">Set up Apple Pay</a>; in the app, <em>Manage → Log Apple Pay Automatically</em> walks you through the same steps.</p> <p>On iOS 27, step 3 is the one that matters: tap the “Automation” filter first, or the search won’t find the “Wallet” trigger. On iOS 26, it’s step 4: choose “Create New Shortcut”, not “My Budget” further down – otherwise the connected fields are missing.</p>",
       },
       {
-        q: "I have several cards – how do I assign them?",
+        q: "How do I assign several cards?",
         a: "<p>One automation covers all your cards. In the action, connect the “Card” field as well. Every card you pay with then appears under <em>Manage → Log Apple Pay Automatically → Your Cards</em>. Choose its payment method there once, and My Budget files every payment made with that card correctly – including those still waiting under “To Review”.</p> <p>You can also assign a new card right under “To Review”.</p>",
       },
       {
-        q: "The automation doesn’t run – what can I do?",
+        q: "What if the automation doesn’t run?",
         a: "<ul> <li>Only paying with your iPhone at checkout triggers the automation – not paying with Apple Watch, and not online purchases.</li> <li>On iOS 27, “Automation” must be turned on in the trigger; on iOS 26, “Run Immediately” must be selected in the automation.</li> <li>Wallet needs cellular data: iOS Settings → “Cellular” → turn on “Wallet”.</li> <li>In My Budget, <em>Manage → Log Apple Pay Automatically</em> shows at the top when a payment last arrived and whether the merchant and card came with it.</li> </ul>",
       },
       {
-        q: "Trying it with ▶ shows an error – is something wrong?",
+        q: "Why does trying it with ▶ show an error?",
         a: "<p>No. With ▶, the automation runs without a real payment, so Wallet provides no amount and My Budget reports an error. With a real payment made with your iPhone, the amount, merchant and card come along.</p> <p>To try it out, <em>Manage → Log Apple Pay Automatically → Create Test Expense</em> creates a payment that arrives under “To Review” just like a real one.</p>",
       },
       {
@@ -314,7 +314,7 @@ const en: Dictionary = {
         a: "<p>The iOS automation also reports payments that were declined. That’s why automatically logged payments land under “To Review” first and only count toward your monthly total once you confirm them.</p> <p>If you correct the category or payment method while reviewing, My Budget remembers the merchant and files it correctly on your next purchase. If the automation runs twice, the same amount at the same merchant within five minutes is logged only once.</p>",
       },
       {
-        q: "I paid for several people – does only my share count?",
+        q: "I paid for several people. Does only my share count?",
         a: "<p>Yes, if you split the expense: when logging it with “Split with Others”, for Apple Pay payments under “To Review” with “Split”, and afterward for any expense in its details with “Split”.</p> <p>You divide evenly by the number of people or enter your share. Only your share then counts toward your budget; the total you paid stays on record, and you can undo the split at any time.</p>",
       },
       {
@@ -322,8 +322,8 @@ const en: Dictionary = {
         a: "<p>Yes. When logging, tap the currency below the amount and choose, for example, euros, pounds or Canadian dollars. My Budget converts the amount to your home currency using the European Central Bank’s reference rate for the day of the expense; what you paid stays with the expense. If the Apple Pay automation reports a payment in a foreign currency, My Budget takes it the same way.</p> <p>The most accurate figure is the amount on your card statement, because it includes your bank’s fee. Tap the converted line and enter it. For currencies the ECB doesn’t publish, you enter the rate yourself.</p>",
       },
       {
-        q: "I moved abroad – can I change the currency?",
-        a: "<p>Yes, under <em>Manage → Currency</em>. My Budget converts every expense at the rate of its day and your budget at today’s rate. The previous amounts stay saved – if you switch back, they’re restored exactly. If your amounts were meant in the new currency from the start, choose “Change Currency Only”.</p>",
+        q: "Can I change the currency after moving abroad?",
+        a: "<p>Yes, under <em>Manage → Currency</em>. My Budget converts every expense at the rate of its day and your budget at today’s rate. The previous amounts stay saved. If you switch back, they’re restored exactly. If your amounts were meant in the new currency from the start, choose “Change Currency Only”.</p>",
       },
       {
         q: "Can I submit expense reports to accounting?",

@@ -5,7 +5,7 @@ import type { Dictionary } from "../types";
 const de: Dictionary = {
   meta: {
     title: "Monatskasse – Haushaltsbuch für iPhone und iPad",
-    description: "Monatskasse ist das kostenlose Haushaltsbuch für iPhone und iPad: Ausgaben in Sekunden erfassen, Fixkosten automatisch buchen – ohne Konto, ohne Werbung.",
+    description: "Monatskasse ist das kostenlose Haushaltsbuch für iPhone und iPad: Ausgaben in Sekunden erfassen, Fixkosten automatisch buchen. Ohne Konto, ohne Werbung.",
     ogTitle: "Monatskasse – Haushaltsbuch für iPhone und iPad",
     ogDescription: "Budget, Ausgaben und Fixkosten auf einen Blick. Ohne Konto, ohne Werbung, ohne Tracking.",
     ogImageAlt: "Monatskasse auf dem iPhone: Übersicht und Analyse eines Monats",
@@ -37,7 +37,7 @@ const de: Dictionary = {
   hero: {
     eyebrow: "Haushaltsbuch für iPhone und iPad",
     title: "Wie viel ist diesen Monat noch übrig?",
-    lead: "Monatskasse zeigt dir auf einen Blick, was du ausgegeben hast und was bis zum Monatsende bleibt. Ausgaben in Sekunden erfassen, Fixkosten automatisch buchen, Budget im Blick behalten.",
+    lead: "Monatskasse zeigt dir, was du ausgegeben hast und was bis zum Monatsende bleibt. Ausgaben trägst du in Sekunden ein, Fixkosten bucht die App von selbst.",
     pills: ["Kein Konto", "Keine Werbung", "Kein Tracking"],
     ctaFeatures: "Funktionen ansehen",
     ctaHelp: "Hilfe & Kontakt",
@@ -54,11 +54,11 @@ const de: Dictionary = {
         title: "In Sekunden erfasst",
         text: "Betrag, Titel, fertig. Häufige Einträge schlägt Monatskasse schon beim Tippen vor, samt Kategorie und Zahlart.",
         checks: [
-          "Kassenbeleg fotografieren: Summe, Datum und Positionen werden auf dem Gerät erkannt – mit Rechenprobe, damit die Beträge stimmen",
-          "Rechnung geteilt? Durch Personen teilen oder deinen Anteil eintragen – auch nachträglich, etwa bei einer Apple-Pay-Zahlung",
-          "Im Ausland bezahlt? Betrag in der fremden Währung erfassen – Monatskasse rechnet mit dem Tageskurs der Europäischen Zentralbank um und merkt sich, was du bezahlt hast",
-          "Schon gebucht? Gehört ein gescannter Beleg zu Fixkosten oder einer Apple-Pay-Zahlung, die schon da ist, schlägt Monatskasse vor, ihn dort anzuhängen – statt doppelt zu zählen",
-          "Spesen? Belege sammeln und mit einem Tipp als Abrechnung an die Buchhaltung geben – PDF mit allen Belegen, Tabelle und Originaldateien. Auch Fixkosten lassen sich als Spesen führen, etwa ein Abo fürs Geschäft",
+          "Kassenbeleg fotografieren: Summe, Datum und Positionen erkennt die App direkt auf dem Gerät und rechnet nach, ob die Beträge aufgehen",
+          "Rechnung geteilt? Teile durch die Anzahl Personen oder trag deinen Anteil ein, auch nachträglich bei einer Apple-Pay-Zahlung",
+          "Zahlungen im Ausland erfasst du in der fremden Währung. Monatskasse rechnet mit dem Tageskurs der Europäischen Zentralbank um und merkt sich, was du bezahlt hast",
+          "Gehört ein gescannter Beleg zu Fixkosten oder einer Apple-Pay-Zahlung, die schon da ist, hängt Monatskasse ihn auf Wunsch dort an, statt doppelt zu zählen",
+          "Spesen? Belege sammeln und mit einem Tipp als Abrechnung an die Buchhaltung geben: ein PDF mit allen Belegen, dazu Tabelle und Originaldateien. Auch Fixkosten lassen sich als Spesen führen, etwa ein Abo fürs Geschäft",
           "Auch mit Siri, mit Kurzbefehlen oder über den Knopf im Kontrollzentrum",
         ],
         alt: "Beleg prüfen: Ein Kassenzettel über 16,76 € ist erkannt, die vier Positionen ergeben genau die Summe, als Kategorie ist Lebensmittel vorgeschlagen.",
@@ -66,9 +66,9 @@ const de: Dictionary = {
       {
         kicker: "Automatisch",
         title: "Apple Pay trägt sich selbst ein",
-        text: "Richte einmal eine Automation in der Kurzbefehle-App ein – eine für alle Karten. Danach landen Zahlungen mit Apple Pay von selbst in Monatskasse, mit Betrag, Händler und Karte.",
+        text: "Richte einmal eine Automation in der Kurzbefehle-App ein, eine für alle Karten. Danach landen Zahlungen mit Apple Pay von selbst in Monatskasse, mit Betrag, Händler und Karte.",
         checks: [
-          "Die App führt dich Schritt für Schritt durch die Einrichtung – <a href=\"#apple-pay\">die Anleitung steht auch hier</a>",
+          "Die App führt dich Schritt für Schritt durch die Einrichtung. <a href=\"#apple-pay\">Die Anleitung steht auch hier</a>",
           "Jede Karte bekommt ihre Zahlart: einmal zugeordnet, immer richtig gebucht",
           "Zur Sicherheit erst unter „Zu prüfen“, denn iOS meldet auch abgelehnte Zahlungen",
         ],
@@ -77,11 +77,11 @@ const de: Dictionary = {
       {
         kicker: "Analyse",
         title: "Sehen, wohin das Geld geht",
-        text: "Wie steht der Monat im Vergleich zum Vormonat? Wo landest du, wenn es so weitergeht? Und wohin geht das Geld eigentlich? Monatskasse zeigt es dir – zum Antippen und Darüberfahren.",
+        text: "Wie steht der Monat im Vergleich zum Vormonat? Wo landest du, wenn es so weitergeht? Und wohin geht das Geld eigentlich? Monatskasse zeigt es dir: zum Antippen und Darüberfahren.",
         checks: [
           "Der Monat Tag für Tag neben dem Vormonat, mit Prognose bis zum Monatsende",
           "Der Verlauf über drei, sechs oder zwölf Monate, aufgeteilt in Fixkosten und Alltag",
-          "Nach Kategorie, Zahlart oder Händler – jede mit eigener Seite und allen Buchungen dahinter",
+          "Nach Kategorie, Zahlart oder Händler, jeweils mit eigener Seite und allen Buchungen dahinter",
           "Einen Monat antippen, und alles darunter zeigt genau ihn – bis zu den Wochentagen",
         ],
         alt: "Analyse: 1.921,55 € im Oktober, 14 Prozent weniger als im September am selben Tag, voraussichtlich 3.029 € und damit 471 € unter Budget. Darunter der Verlauf mit 2.904 € im Schnitt und fünf von fünf Monaten im Budget.",
@@ -89,12 +89,12 @@ const de: Dictionary = {
       {
         kicker: "Buchungen & Fixkosten",
         title: "Alles an seinem Platz",
-        text: "Jede Ausgabe nach Tagen sortiert, mit Kategorie und Zahlart – und über die Suche schnell wiedergefunden. Miete, Versicherung und Abos legst du einmal an, Monatskasse bucht sie pünktlich von selbst.",
+        text: "Jede Ausgabe nach Tagen sortiert, mit Kategorie und Zahlart, über die Suche schnell wiedergefunden. Miete, Versicherung und Abos legst du einmal an, Monatskasse bucht sie pünktlich von selbst.",
         checks: [
           "Täglich, wöchentlich, monatlich oder jährlich",
           "Im Tagesschnitt über den Monat verteilt, statt dich am Monatsersten zu erschrecken",
           "Erinnerung einen Tag vor großen Fixkosten",
-          "Auch in fremder Währung – jede Buchung mit dem Kurs ihres Tages",
+          "Auch in fremder Währung, jede Buchung zum Kurs ihres Tages",
         ],
         alt: "Buchungen nach Tagen: Wocheneinkauf 87,40 €, Bäckerei 6,80 €, Tanken 78,40 €, Mittagessen 12,90 €.",
       },
@@ -117,8 +117,8 @@ const de: Dictionary = {
     },
   },
   details: {
-    title: "Durchdacht bis ins Detail",
-    intro: "Kleine Dinge, die im Alltag den Unterschied machen.",
+    title: "Auch an Kleinigkeiten gedacht",
+    intro: "Ein paar Dinge, die man erst merkt, wenn man sie braucht.",
     tiles: [
       {
         title: "Budget als Ring",
@@ -126,7 +126,7 @@ const de: Dictionary = {
       },
       {
         title: "Erinnert, wenn es zählt",
-        text: "Bei 80 und 100 Prozent deines Budgets, einen Tag vor großen Fixkosten und mit einem Rückblick zum Monatsanfang. Mehr nicht.",
+        text: "Bei 80 und 100 Prozent deines Budgets, einen Tag vor großen Fixkosten und mit einem Rückblick zum Monatsanfang. Sonst lässt dich die App in Ruhe.",
       },
       {
         title: "Siri und Kurzbefehle",
@@ -134,7 +134,7 @@ const de: Dictionary = {
       },
       {
         title: "Deine Kategorien",
-        text: "Eigene Kategorien mit Emoji und Farbe, dazu deine Zahlarten – vom Girokonto bis zum Bargeld.",
+        text: "Eigene Kategorien mit Emoji und Farbe, dazu deine Zahlarten vom Girokonto bis zum Bargeld.",
       },
       {
         title: "Export und Sicherung",
@@ -171,7 +171,7 @@ const de: Dictionary = {
   },
   applePay: {
     title: "Apple Pay einrichten",
-    intro: "Einmalig, in der Kurzbefehle-App. Die Schritte hängen von der iOS-Version ab – auf dem iPhone zeigt dir Monatskasse unter <em>Verwalten → Apple Pay automatisch erfassen</em> gleich die passenden.",
+    intro: "Einmalig, in der Kurzbefehle-App. Die Schritte hängen von der iOS-Version ab. Auf dem iPhone zeigt dir Monatskasse unter <em>Verwalten → Apple Pay automatisch erfassen</em> gleich die passenden.",
     versions: ["iOS 27", "iOS 26"],
     osHint: "Welche Version du hast, steht in den Einstellungen unter „Allgemein“ → „Info“.",
     quick: {
@@ -303,15 +303,15 @@ const de: Dictionary = {
         a: "<p>Mit einer Automation, die du einmal in der Kurzbefehle-App anlegst. Die Schritte stehen oben unter <a href=\"#apple-pay\">Apple Pay einrichten</a>; in der App führt dich <em>Verwalten → Apple Pay automatisch erfassen</em> durch dieselben Schritte.</p> <p>Unter iOS 27 kommt es auf Schritt 3 an: erst den Filter „Automation“ antippen, sonst findet die Suche den Auslöser „Wallet“ nicht. Unter iOS 26 auf Schritt 4: „Neuen Kurzbefehl erstellen“ wählen und nicht weiter unten „Monatskasse“ – sonst fehlen die verbundenen Felder.</p>",
       },
       {
-        q: "Ich habe mehrere Karten – wie ordne ich sie zu?",
+        q: "Wie ordne ich mehrere Karten zu?",
         a: "<p>Eine Automation reicht für alle Karten. Verbinde in der Aktion auch das Feld „Karte“. Jede Karte, mit der du bezahlst, erscheint danach unter <em>Verwalten → Apple Pay automatisch erfassen → Deine Karten</em>. Dort wählst du einmal die Zahlart, und Monatskasse bucht jede Zahlung mit dieser Karte richtig – auch die, die noch unter „Zu prüfen“ warten.</p> <p>Eine neue Karte kannst du auch direkt unter „Zu prüfen“ zuordnen.</p>",
       },
       {
-        q: "Die Automation löst nicht aus – was kann ich tun?",
+        q: "Was tun, wenn die Automation nicht auslöst?",
         a: "<ul> <li>Nur das Bezahlen mit dem iPhone an der Kasse löst die Automation aus – nicht die Apple Watch und keine Online-Käufe.</li> <li>Unter iOS 27 muss im Auslöser „Automation“ eingeschaltet sein, unter iOS 26 muss in der Automation „Sofort ausführen“ gewählt sein.</li> <li>Wallet braucht mobile Daten: iOS-Einstellungen → „Mobilfunk“ → „Wallet“ einschalten.</li> <li>In Monatskasse zeigt <em>Verwalten → Apple Pay automatisch erfassen</em> oben, wann zuletzt eine Zahlung ankam und ob Händler und Karte dabei waren.</li> </ul>",
       },
       {
-        q: "Beim Ausprobieren mit ▶ kommt ein Fehler – ist etwas falsch?",
+        q: "Warum kommt beim Ausprobieren mit ▶ ein Fehler?",
         a: "<p>Nein. Mit ▶ läuft die Automation ohne echte Zahlung, deshalb liefert Wallet keinen Betrag, und Monatskasse meldet einen Fehler. Bei einer echten Zahlung mit dem iPhone kommen Betrag, Händler und Karte mit.</p> <p>Zum Ausprobieren erzeugt <em>Verwalten → Apple Pay automatisch erfassen → Testbuchung erzeugen</em> eine Zahlung, die genauso unter „Zu prüfen“ ankommt wie eine echte.</p>",
       },
       {
@@ -319,7 +319,7 @@ const de: Dictionary = {
         a: "<p>Die Automation von iOS meldet auch Zahlungen, die abgelehnt wurden. Automatisch erfasste Zahlungen landen deshalb zuerst unter „Zu prüfen“ und zählen erst nach deiner Bestätigung zur Monatssumme.</p> <p>Korrigierst du dabei Kategorie oder Zahlart, merkt sich Monatskasse den Händler und ordnet ihn beim nächsten Einkauf selbst richtig zu. Löst die Automation zweimal aus, wird derselbe Betrag beim selben Händler innerhalb von fünf Minuten nur einmal erfasst.</p>",
       },
       {
-        q: "Ich habe für mehrere bezahlt – zählt nur mein Anteil?",
+        q: "Ich habe für mehrere bezahlt. Zählt nur mein Anteil?",
         a: "<p>Ja, wenn du die Buchung aufteilst: beim Erfassen über „Mit anderen geteilt“, bei Apple-Pay-Zahlungen unter „Zu prüfen“ über „Teilen“ und nachträglich bei jeder Buchung in der Detailansicht über „Aufteilen“.</p> <p>Du teilst gleichmäßig durch die Anzahl Personen oder trägst deinen Anteil ein. Fürs Budget zählt dann nur dein Anteil; was du insgesamt bezahlt hast, bleibt vermerkt, und die Aufteilung lässt sich jederzeit zurücknehmen.</p>",
       },
       {
@@ -327,8 +327,8 @@ const de: Dictionary = {
         a: "<p>Ja. Tippe beim Erfassen unter dem Betrag auf die Währung und wähle zum Beispiel Euro, Pfund oder Dollar. Monatskasse rechnet mit dem Referenzkurs der Europäischen Zentralbank vom Tag der Ausgabe in deine Heimwährung um; was du bezahlt hast, bleibt an der Buchung stehen. Meldet die Apple-Pay-Automation eine Zahlung in fremder Währung, übernimmt Monatskasse sie ebenso.</p> <p>Am genauesten ist der Betrag auf deiner Kartenabrechnung, denn er enthält die Gebühr der Bank. Tippe auf die umgerechnete Zeile und trag ihn ein. Für Währungen, die die EZB nicht führt, trägst du den Kurs selbst ein.</p>",
       },
       {
-        q: "Ich bin umgezogen – kann ich die Währung wechseln?",
-        a: "<p>Ja, unter <em>Verwalten → Währung</em>. Monatskasse rechnet dabei jede Buchung zum Kurs ihres Tages und dein Budget zum heutigen Kurs um. Die bisherigen Beträge bleiben gespeichert – wechselst du zurück, stehen sie genau wieder da. Waren deine Beträge von Anfang an in der neuen Währung gemeint, wählst du „Nur Währung ändern“.</p>",
+        q: "Kann ich nach einem Umzug die Währung wechseln?",
+        a: "<p>Ja, unter <em>Verwalten → Währung</em>. Monatskasse rechnet dabei jede Buchung zum Kurs ihres Tages und dein Budget zum heutigen Kurs um. Die bisherigen Beträge bleiben gespeichert. Wechselst du zurück, stehen sie genau wieder da. Waren deine Beträge von Anfang an in der neuen Währung gemeint, wählst du „Nur Währung ändern“.</p>",
       },
       {
         q: "Kann ich Spesen für die Buchhaltung abrechnen?",
