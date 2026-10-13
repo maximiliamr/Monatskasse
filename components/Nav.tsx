@@ -25,7 +25,10 @@ export default function Nav({ lang, t, page }: { lang: Language; t: Dictionary; 
                 <a className="optional" href={`#${t.ids.privacy}`}>
                   {t.nav.privacy}
                 </a>
-                <a href={`#${t.ids.help}`}>{t.nav.help}</a>
+                {/* Wie die beiden davor nur auf breiten Bildschirmen – mobil steht die Hilfe in der Fusszeile. */}
+                <a className="optional" href={`#${t.ids.help}`}>
+                  {t.nav.help}
+                </a>
               </>
             )}
             <LanguageSwitcher lang={lang} t={t} page={target} />

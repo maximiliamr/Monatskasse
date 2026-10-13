@@ -32,6 +32,7 @@ export default function Hero({ lang, t }: { lang: Language; t: Dictionary }) {
             )}
             <a className={store ? "btn btn-glass" : "btn btn-light"} href={`#${t.ids.features}`}>
               {t.hero.ctaFeatures}
+              <Icon name="chevron" />
             </a>
             {!store && (
               <a className="btn btn-glass" href={`#${t.ids.help}`}>

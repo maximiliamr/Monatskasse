@@ -490,3 +490,30 @@ picture { display: contents; }
 .store-badge img { display: block; width: auto; height: 50px; }
 .store-badge:hover { transform: translateY(-1px); }
 .store-badge:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* Kopfbereich auf schmalen Bildschirmen: mittig und ruhig, mit dem App-Store-Badge als
+   klarer Hauptaktion – wie auf guten App-Seiten. Breite Bildschirme bleiben, wie sie sind. */
+.cta .btn .i { display: none; }
+@media (max-width: 920px) {
+  .hero-grid > div:first-child { text-align: center; }
+  .eyebrow { flex-direction: column; gap: 14px; }
+  .lead { margin-inline: auto; }
+  .pills, .cta { justify-content: center; }
+}
+@media (max-width: 560px) {
+  .hero-grid { padding: 36px 0 60px; gap: 44px; }
+  .eyebrow { gap: 12px; font-size: 0.95rem; }
+  .eyebrow .app-icon { width: 72px; height: 72px; }
+  .hero h1 { font-size: clamp(2.15rem, 9.8vw, 2.7rem); line-height: 1.05; letter-spacing: -0.03em; margin: 16px 0 14px; }
+  .lead { font-size: 1rem; line-height: 1.5; max-width: 35ch; margin-bottom: 20px; }
+  .pills { gap: 6px 12px; margin-bottom: 30px; }
+  .pills li { padding: 0; background: none; border: 0; border-radius: 0; gap: 4px; font-size: 0.86rem; color: rgba(235, 235, 255, 0.88); }
+  .pills .i { width: 16px; height: 16px; }
+  .cta { flex-direction: column; align-items: center; gap: 12px; }
+  .store-badge img { height: 56px; }
+  .cta .btn { flex: none; min-height: 44px; padding: 0 16px 0 20px; gap: 6px; font-size: 0.98rem; font-weight: 600; }
+  .cta .btn-glass { background: transparent; border-color: transparent; color: rgba(235, 235, 255, 0.86); }
+  .cta .btn .i { display: block; width: 18px; height: 18px; stroke-width: 2.2; }
+  .hero-visual { width: min(100%, 290px); padding-left: 0; }
+  .hero-widget { left: -36px; bottom: -12px; width: 44%; }
+}
