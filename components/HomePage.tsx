@@ -18,8 +18,8 @@ export default function HomePage({ lang }: { lang: Language }) {
     <>
       <IconSprite />
       <Nav lang={lang} t={t} page="home" />
-      <Hero lang={lang} t={t} />
-      <main>
+      <main id="inhalt">
+        <Hero lang={lang} t={t} />
         <Features lang={lang} t={t} />
         <Devices lang={lang} t={t} />
         <Details t={t} />

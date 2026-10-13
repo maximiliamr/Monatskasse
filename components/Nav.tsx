@@ -11,6 +11,9 @@ export default function Nav({ lang, t, page }: { lang: Language; t: Dictionary; 
   const target: PageKind = page === "notFound" ? "home" : page;
   return (
     <>
+      <a className="skip-link" href="#inhalt">
+        {t.nav.skip}
+      </a>
       <nav className="nav" aria-label={t.nav.label}>
         <div className="wrap">
           <a className="brand" href={home ? "#top" : paths.home(lang)}>

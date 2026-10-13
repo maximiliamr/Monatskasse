@@ -8,7 +8,7 @@ import Picture from "../Picture";
 export default function Hero({ lang, t }: { lang: Language; t: Dictionary }) {
   const store = appStoreUrl(lang);
   return (
-    <header className="hero" id="top">
+    <div className="hero" id="top">
       <div className="wrap hero-grid">
         <div>
           <p className="eyebrow">
@@ -46,6 +46,6 @@ export default function Hero({ lang, t }: { lang: Language; t: Dictionary }) {
           <Picture language={lang} file="widget-small.png" widths={[176, 353]} sizes="160px" className="hero-widget" width="353" height="353" alt={t.hero.widgetAlt} />
         </div>
       </div>
-    </header>
+    </div>
   );
 }

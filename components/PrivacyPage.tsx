@@ -19,7 +19,7 @@ export default function PrivacyPage({ lang }: { lang: Language }) {
     <>
       <IconSprite />
       <Nav lang={lang} t={dictionary(lang)} page="privacy" />
-      <main className="policy" lang={policy.code} dangerouslySetInnerHTML={{ __html: body }} />
+      <main id="inhalt" className="policy" lang={policy.code} dangerouslySetInnerHTML={{ __html: body }} />
       <JsonLd data={privacyData(lang)} />
     </>
   );

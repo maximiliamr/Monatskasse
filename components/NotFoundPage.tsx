@@ -8,7 +8,7 @@ export default function NotFoundPage({ lang }: { lang: Language }) {
     <>
       <IconSprite />
       <Nav lang={lang} t={t} page="notFound" />
-      <main className="notfound">
+      <main id="inhalt" className="notfound">
         <section>
           <div className="wrap">
             <div className="section-head">

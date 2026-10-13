@@ -45,7 +45,7 @@ export interface Dictionary {
     ogDescription: string;
     ogImageAlt: string;
   };
-  nav: { label: string; features: string; privacy: string; help: string };
+  nav: { label: string; skip: string; features: string; privacy: string; help: string };
   /** Sprungmarken der Abschnitte, in der Sprache der Seite. */
   ids: { features: string; devices: string; privacy: string; applePay: string; help: string; contact: string };
   language: {

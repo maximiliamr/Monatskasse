@@ -12,6 +12,7 @@ const en: Dictionary = {
   },
   nav: {
     label: "Main navigation",
+    skip: "Skip to content",
     features: "Features",
     privacy: "Privacy",
     help: "Help",
