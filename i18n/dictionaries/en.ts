@@ -5,7 +5,7 @@ import type { Dictionary } from "../types";
 const en: Dictionary = {
   meta: {
     title: "My Budget – Monthly Budget Planner for iPhone and iPad",
-    description: "How much is left this month? My Budget is the budget planner for iPhone and iPad: log expenses in seconds, track recurring bills automatically and keep your budget in view – no account, no ads, no tracking.",
+    description: "My Budget is a free budget planner for iPhone and iPad: log expenses in seconds, track recurring bills automatically – no account, no ads, no tracking.",
     ogTitle: "My Budget – Monthly Budget Planner for iPhone and iPad",
     ogDescription: "Budget, expenses and recurring bills at a glance. No account, no ads, no tracking.",
     ogImageAlt: "My Budget on iPhone: overview and insights for a month",
@@ -40,6 +40,7 @@ const en: Dictionary = {
     pills: ["No account", "No ads", "No tracking"],
     ctaFeatures: "See Features",
     ctaHelp: "Help & Contact",
+    store: "Download on the App Store",
     phoneAlt: "The overview in My Budget: in October, $2,096.83 of a $5,000 budget is left, 58 percent used.",
     widgetAlt: "Small widget on the Home Screen: 58% of the budget used, “Lasts until month-end” below it, and one payment to review.",
   },
@@ -220,7 +221,7 @@ const en: Dictionary = {
         title: "Assign your cards",
         text: "Every card you’ve paid with appears in My Budget under “Your Cards”. Choose its payment method once – after that, the app files every payment made with that card correctly.",
         warn: null,
-        mock: "<div class=\"mk-row\">Visa Debit<span class=\"end\">Checking</span></div> <div class=\"mk-row\">Amex Blue<span class=\"end\" style=\"color: #f59e0b\">Assign</span></div>",
+        mock: "<div class=\"mk-row\">Visa Debit<span class=\"end\">Checking</span></div> <div class=\"mk-row\">Amex Blue<span class=\"end todo\">Assign</span></div>",
         cards: true,
       },
     ],
@@ -278,7 +279,7 @@ const en: Dictionary = {
         title: "Assign your cards",
         text: "Every card you’ve paid with appears in My Budget under “Your Cards”. Choose its payment method once – after that, the app files every payment made with that card correctly.",
         warn: null,
-        mock: "<div class=\"mk-row\">Visa Debit<span class=\"end\">Checking</span></div> <div class=\"mk-row\">Amex Blue<span class=\"end\" style=\"color: #f59e0b\">Assign</span></div>",
+        mock: "<div class=\"mk-row\">Visa Debit<span class=\"end\">Checking</span></div> <div class=\"mk-row\">Amex Blue<span class=\"end todo\">Assign</span></div>",
         cards: true,
       },
     ],
@@ -368,6 +369,7 @@ const en: Dictionary = {
     small: "If something doesn’t work as expected, a diagnostics report helps: in the app under <em>Manage → iCloud Sync → Share Diagnostics</em>. It contains none of the contents of your expenses.",
   },
   footer: {
+    appStore: "App Store",
     privacy: "Privacy Policy",
     help: "Help",
     contact: "Contact",
@@ -389,7 +391,7 @@ const en: Dictionary = {
     languages: "Languages",
     items: [
       "Budget planner app for iPhone and iPad, iOS and iPadOS 18.5 or later",
-      "Free, with no ads and no in-app purchases",
+      "Free on the App Store, with no ads and no in-app purchases",
       "No account and no bank connection – entries stay on the device and in the user’s private iCloud",
       "No analytics, tracking or advertising tools",
       "Made by Maximilian Ruhl",

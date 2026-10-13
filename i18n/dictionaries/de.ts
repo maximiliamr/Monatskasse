@@ -5,7 +5,7 @@ import type { Dictionary } from "../types";
 const de: Dictionary = {
   meta: {
     title: "Monatskasse – Haushaltsbuch für iPhone und iPad",
-    description: "Wie viel ist diesen Monat noch übrig? Monatskasse ist das Haushaltsbuch für iPhone und iPad: Ausgaben in Sekunden erfassen, Fixkosten automatisch buchen, Budget im Blick – ohne Konto, ohne Werbung, ohne Tracking.",
+    description: "Monatskasse ist das kostenlose Haushaltsbuch für iPhone und iPad: Ausgaben in Sekunden erfassen, Fixkosten automatisch buchen – ohne Konto, ohne Werbung.",
     ogTitle: "Monatskasse – Haushaltsbuch für iPhone und iPad",
     ogDescription: "Budget, Ausgaben und Fixkosten auf einen Blick. Ohne Konto, ohne Werbung, ohne Tracking.",
     ogImageAlt: "Monatskasse auf dem iPhone: Übersicht und Analyse eines Monats",
@@ -40,6 +40,7 @@ const de: Dictionary = {
     pills: ["Kein Konto", "Keine Werbung", "Kein Tracking"],
     ctaFeatures: "Funktionen ansehen",
     ctaHelp: "Hilfe & Kontakt",
+    store: "Laden im App Store",
     phoneAlt: "Die Übersicht in Monatskasse: Im Oktober sind von 3.500 € Budget noch 1.578,45 € übrig, 55 Prozent sind genutzt.",
     widgetAlt: "Kleines Widget auf dem Home-Bildschirm: 55 % des Budgets genutzt, darunter „Reicht bis Monatsende“ und eine Zahlung zu prüfen.",
   },
@@ -225,7 +226,7 @@ const de: Dictionary = {
         title: "Karten zuordnen",
         text: "Jede Karte, mit der du bezahlt hast, erscheint in Monatskasse unter „Deine Karten“. Wähle einmal die Zahlart – danach bucht die App jede Zahlung mit dieser Karte richtig.",
         warn: null,
-        mock: "<div class=\"mk-row\">Visa Debit<span class=\"end\">Girokonto</span></div> <div class=\"mk-row\">Revolut<span class=\"end\" style=\"color: #f59e0b\">Zuordnen</span></div>",
+        mock: "<div class=\"mk-row\">Visa Debit<span class=\"end\">Girokonto</span></div> <div class=\"mk-row\">Revolut<span class=\"end todo\">Zuordnen</span></div>",
         cards: true,
       },
     ],
@@ -283,7 +284,7 @@ const de: Dictionary = {
         title: "Karten zuordnen",
         text: "Jede Karte, mit der du bezahlt hast, erscheint in Monatskasse unter „Deine Karten“. Wähle einmal die Zahlart – danach bucht die App jede Zahlung mit dieser Karte richtig.",
         warn: null,
-        mock: "<div class=\"mk-row\">Visa Debit<span class=\"end\">Girokonto</span></div> <div class=\"mk-row\">Revolut<span class=\"end\" style=\"color: #f59e0b\">Zuordnen</span></div>",
+        mock: "<div class=\"mk-row\">Visa Debit<span class=\"end\">Girokonto</span></div> <div class=\"mk-row\">Revolut<span class=\"end todo\">Zuordnen</span></div>",
         cards: true,
       },
     ],
@@ -373,6 +374,7 @@ const de: Dictionary = {
     small: "Wenn etwas nicht wie erwartet funktioniert, hilft ein Diagnosebericht: in der App unter <em>Verwalten → iCloud-Sync → Diagnose teilen</em>. Er enthält keine Inhalte deiner Buchungen.",
   },
   footer: {
+    appStore: "App Store",
     privacy: "Datenschutzerklärung",
     help: "Hilfe",
     contact: "Kontakt",
@@ -381,7 +383,7 @@ const de: Dictionary = {
   },
   privacyPage: {
     title: "Datenschutzerklärung – Monatskasse",
-    description: "Wie Monatskasse mit deinen Daten umgeht: kein Konto, kein eigener Server, keine Werbung und kein Tracking. Deine Einträge bleiben auf deinem Gerät und in deiner privaten iCloud.",
+    description: "Wie Monatskasse mit deinen Daten umgeht: kein Konto, kein eigener Server, keine Werbung, kein Tracking. Deine Einträge bleiben bei dir.",
     home: "Startseite",
   },
   notFound: {
@@ -394,7 +396,7 @@ const de: Dictionary = {
     languages: "Sprachen",
     items: [
       "Haushaltsbuch-App für iPhone und iPad, ab iOS bzw. iPadOS 18.5",
-      "Kostenlos, ohne Werbung und ohne In-App-Käufe",
+      "Kostenlos im App Store, ohne Werbung und ohne In-App-Käufe",
       "Kein Konto und keine Verbindung zur Bank – die Einträge liegen auf dem Gerät und in der privaten iCloud",
       "Keine Analyse-, Tracking- oder Werbewerkzeuge",
       "Entwickelt von Maximilian Ruhl",

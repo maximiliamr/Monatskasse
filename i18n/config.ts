@@ -16,6 +16,8 @@ export interface Language {
   /** Name der Sprache in ihr selbst: „Deutsch“, „English“. */
   name: string;
   appName: string;
+  /** Storefront des App Store für Besucher dieser Sprache, etwa „de“ oder „us“. */
+  appStore: string;
   /** In welcher Sprache die Datenschutzerklärung für diese Sprache vorliegt. */
   privacyPolicy: string;
   shareImage: { headline: string; pills: string[] };
@@ -26,9 +28,19 @@ export const site = {
   developer: registry.developer,
   email: registry.email,
   minimumOS: registry.minimumOS,
-  /** Apple-ID der App aus App Store Connect – gesetzt, sobald die App im Store ist. */
+  /** Apple-ID der App aus App Store Connect. */
   appStoreId: registry.appStoreId as string | null,
+  /**
+   * Bewertung im App Store, von Hand gepflegt. Erst damit beschreiben die strukturierten
+   * Daten die App als MobileApplication – Google verlangt dafür eine Bewertung.
+   */
+  appStoreRating: registry.appStoreRating as { ratingValue: number; ratingCount: number } | null,
 };
+
+/** Die Seite der App im App Store, in der Storefront der Sprache. */
+export function appStoreUrl(lang: Language): string | null {
+  return site.appStoreId ? `https://apps.apple.com/${lang.appStore}/app/id${site.appStoreId}` : null;
+}
 
 export const languages: Language[] = registry.languages;
 export const defaultLanguage = language(registry.defaultLanguage);
@@ -89,6 +101,19 @@ export function absolute(path: string): string {
 export function image(lang: Language, file: string): string {
   const own = join(process.cwd(), "public", "bilder", lang.code, file);
   return existsSync(own) ? `/bilder/${lang.code}/${file}` : `/bilder/${fallbackLanguage.code}/${file}`;
+}
+
+/**
+ * Ein Bild mit kleineren AVIF-Fassungen für <picture>: `datei-<breite>.avif` im selben
+ * Ordner, erzeugt von AppStore/Screenshots/webseite-bilder.sh. Fehlt eine davon, bleibt
+ * es beim Original.
+ */
+export function responsive(lang: Language, file: string, widths: number[]): { src: string; avif: string | null } {
+  const src = image(lang, file);
+  const base = src.replace(/\.(jpg|png)$/, "");
+  const variants = widths.map((w) => `${base}-${w}.avif`);
+  const complete = variants.every((v) => existsSync(join(process.cwd(), "public", v)));
+  return { src, avif: complete ? variants.map((v, i) => `${v} ${widths[i]}w`).join(", ") : null };
 }
 
 /** Name einer Sprache in einer anderen, etwa „Englisch“ auf einer deutschen Seite. */

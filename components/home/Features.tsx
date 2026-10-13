@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { image, type Language } from "@/i18n/config";
+import type { Language } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/types";
 import { Icon, type IconName } from "../IconSprite";
 import Phone from "../Phone";
@@ -46,7 +46,7 @@ export default function Features({ lang, t }: { lang: Language; t: Dictionary })
                 </ul>
               </div>
               <figure className="media">
-                <Phone src={image(lang, layout.image)} alt={row.alt} />
+                <Phone lang={lang} file={layout.image} alt={row.alt} sizes="(max-width: 405px) 74vw, 300px" />
               </figure>
             </article>
           );

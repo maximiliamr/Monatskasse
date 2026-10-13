@@ -1,5 +1,6 @@
 import { paths, type Language, type PageKind } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/types";
+import AppIcon from "./AppIcon";
 import LanguageHint from "./LanguageHint";
 import LanguageSwitcher from "./LanguageSwitcher";
 
@@ -13,7 +14,7 @@ export default function Nav({ lang, t, page }: { lang: Language; t: Dictionary; 
       <nav className="nav" aria-label={t.nav.label}>
         <div className="wrap">
           <a className="brand" href={home ? "#top" : paths.home(lang)}>
-            <img src="/bilder/icon.png" width="30" height="30" alt="" /> {lang.appName}
+            <AppIcon size={30} /> {lang.appName}
           </a>
           <div className="nav-links">
             {home && (

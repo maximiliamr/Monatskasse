@@ -63,6 +63,8 @@ export interface Dictionary {
     pills: [string, string, string];
     ctaFeatures: string;
     ctaHelp: string;
+    /** Beschriftung des App-Store-Badges für Screenreader, wie auf dem Badge. */
+    store: string;
     phoneAlt: string;
     widgetAlt: string;
   };
@@ -83,7 +85,7 @@ export interface Dictionary {
   };
   help: { title: string; intro: Html; faq: { q: string; a: Html }[] };
   contact: { title: string; text: Html; button: string; small: Html };
-  footer: { privacy: string; help: string; contact: string; copyright: string; fine: Html };
+  footer: { appStore: string; privacy: string; help: string; contact: string; copyright: string; fine: Html };
   privacyPage: { title: string; description: string; home: string };
   notFound: { title: string; text: string; back: string };
   /** Kurzfakten für Suchmaschinen und KI (llms.txt, Markdown-Fassung). */

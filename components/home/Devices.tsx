@@ -1,6 +1,7 @@
-import { image, type Language } from "@/i18n/config";
+import type { Language } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/types";
 import { Icon } from "../IconSprite";
+import Picture from "../Picture";
 import Tablet from "../Tablet";
 
 export default function Devices({ lang, t }: { lang: Language; t: Dictionary }) {
@@ -21,7 +22,7 @@ export default function Devices({ lang, t }: { lang: Language; t: Dictionary }) 
             <h3>{widgets.title}</h3>
             <p dangerouslySetInnerHTML={{ __html: widgets.text }} />
             <div className="widget-stage">
-              <img src={image(lang, "widget-medium.png")} width="756" height="353" loading="lazy" decoding="async" alt={widgets.alt} />
+              <Picture language={lang} file="widget-medium.png" widths={[378, 756]} sizes="(max-width: 560px) 80vw, 430px" width="756" height="353" loading="lazy" decoding="async" alt={widgets.alt} />
             </div>
           </div>
           <div className="card card-ipad">
@@ -31,7 +32,7 @@ export default function Devices({ lang, t }: { lang: Language; t: Dictionary }) 
             </p>
             <h3>{ipad.title}</h3>
             <p dangerouslySetInnerHTML={{ __html: ipad.text }} />
-            <Tablet className="ipad" src={image(lang, "ipad.jpg")} alt={ipad.alt} />
+            <Tablet lang={lang} file="ipad.jpg" className="ipad" alt={ipad.alt} sizes="(max-width: 920px) 80vw, 460px" />
           </div>
         </div>
       </div>

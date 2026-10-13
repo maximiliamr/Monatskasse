@@ -1,15 +1,18 @@
-import { image, type Language } from "@/i18n/config";
+import { appStoreUrl, image, type Language } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/types";
+import AppIcon from "../AppIcon";
 import { Icon } from "../IconSprite";
 import Phone from "../Phone";
+import Picture from "../Picture";
 
 export default function Hero({ lang, t }: { lang: Language; t: Dictionary }) {
+  const store = appStoreUrl(lang);
   return (
     <header className="hero" id="top">
       <div className="wrap hero-grid">
         <div>
           <p className="eyebrow">
-            <img className="app-icon" src="/bilder/icon.png" width="56" height="56" alt="" /> {t.hero.eyebrow}
+            <AppIcon size={56} className="app-icon" /> {t.hero.eyebrow}
           </p>
           <h1>{t.hero.title}</h1>
           <p className="lead" dangerouslySetInnerHTML={{ __html: t.hero.lead }} />
@@ -22,17 +25,24 @@ export default function Hero({ lang, t }: { lang: Language; t: Dictionary }) {
             ))}
           </ul>
           <div className="cta">
-            <a className="btn btn-light" href={`#${t.ids.features}`}>
+            {store && (
+              <a className="store-badge" href={store}>
+                <img src={image(lang, "app-store.svg")} width="150" height="50" alt={t.hero.store} />
+              </a>
+            )}
+            <a className={store ? "btn btn-glass" : "btn btn-light"} href={`#${t.ids.features}`}>
               {t.hero.ctaFeatures}
             </a>
-            <a className="btn btn-glass" href={`#${t.ids.help}`}>
-              {t.hero.ctaHelp}
-            </a>
+            {!store && (
+              <a className="btn btn-glass" href={`#${t.ids.help}`}>
+                {t.hero.ctaHelp}
+              </a>
+            )}
           </div>
         </div>
         <div className="hero-visual">
-          <Phone className="hero-phone" src={image(lang, "overview.jpg")} alt={t.hero.phoneAlt} priority />
-          <img className="hero-widget" src={image(lang, "widget-small.png")} width="353" height="353" alt={t.hero.widgetAlt} />
+          <Phone lang={lang} file="overview.jpg" className="hero-phone" alt={t.hero.phoneAlt} sizes="310px" priority />
+          <Picture language={lang} file="widget-small.png" widths={[176, 353]} sizes="160px" className="hero-widget" width="353" height="353" alt={t.hero.widgetAlt} />
         </div>
       </div>
     </header>

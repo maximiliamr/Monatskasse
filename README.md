@@ -8,7 +8,7 @@ Schriften oder Skripte.
 
 | Ordner / Datei | Inhalt |
 |---|---|
-| `i18n/languages.json` | Sprachen der Seite: Code, hreflang, Open-Graph-Locale, Name, App-Name, welche Datenschutzerklärung gilt, Texte des Teilbilds. Dazu Adresse, Entwickler, Kontakt, Mindest-iOS und – sobald die App im Store ist – `appStoreId`. |
+| `i18n/languages.json` | Sprachen der Seite: Code, hreflang, Open-Graph-Locale, Name, App-Name, App-Store-Storefront (`appStore`), welche Datenschutzerklärung gilt, Texte des Teilbilds. Dazu Adresse, Entwickler, Kontakt, Mindest-iOS, `appStoreId` (Badge, Smart-App-Banner) und `appStoreRating`. |
 | `i18n/dictionaries/<code>.ts` | Alle Texte einer Sprache. Der Typ `Dictionary` (`i18n/types.ts`) legt fest, was jede Sprache liefern muss. |
 | `i18n/config.ts` | Adressen (`/`, `/datenschutz`, `/en`, `/en/privacy` …), Bilder mit Rückfallsprache, Sprachnamen. |
 | `app/(de)/` | Deutsch ohne Präfix – Startseite und Datenschutz. |
@@ -18,7 +18,7 @@ Schriften oder Skripte.
 | `lib/seo.ts`, `lib/structured-data.tsx`, `lib/llm.ts` | Meta-Angaben und hreflang, schema.org-Daten (JSON-LD), llms.txt und Markdown. |
 | `content/privacy/<code>.html` | Die Datenschutzerklärung – byte-gleich mit der Fassung in der App. |
 | `styles/` | Gestaltung der Seite und der Datenschutzerklärung. |
-| `public/bilder/` | Symbol und Favicons; je Sprache ein Ordner mit Aufnahmen und Teilbild `og.jpg`. |
+| `public/bilder/` | Symbol und Favicons; je Sprache ein Ordner mit Aufnahmen, AVIF-Fassungen (`<name>-<breite>.avif`), App-Store-Badge und Teilbild `og.jpg`. |
 | `public/_headers`, `public/_redirects` | Sicherheits-Header und Weiterleitungen alter Adressen (Cloudflare). |
 | `docs/` | Nur für die alte Adresse `maximiliamr.github.io/Monatskasse`: Weiterleitungen hierher. |
 
@@ -42,6 +42,18 @@ npm run preview    # Build und Auslieferung wie bei Cloudflare (wrangler dev)
    Bilder nimmt die Seite die englischen.
 4. `npm run build` – Sprachwahl, hreflang, Sitemap, llms.txt, Fusszeile und Sprachhinweis
    kennen die neue Sprache dann von selbst.
+
+## Suchmaschinen
+
+- Die Google Search Console ist über einen TXT-Eintrag im DNS (Cloudflare) bestätigt – den Eintrag nicht löschen.
+- Sitemap: `https://monatskasse.de/sitemap.xml` (Sprachfassungen, Datum der letzten Änderung aus Git, Bilder).
+- `appStoreRating` in `i18n/languages.json`: sobald die App Bewertungen hat, `{ "ratingValue": 4.8, "ratingCount": 12 }`
+  eintragen. Erst dann beschreiben die strukturierten Daten die App als `MobileApplication` – Google verlangt dafür
+  eine Bewertung und meldet die Angabe sonst als Fehler.
+- Markdown-Fassungen, `llms.txt` und Next-Datendateien tragen `X-Robots-Tag: noindex` (`public/_headers`),
+  damit sie nicht als Doppel der Seiten im Index stehen.
+- Neue oder geänderte Bilder: `AppStore/Screenshots/webseite-bilder.sh --nur-varianten` (im App-Repository)
+  erzeugt die AVIF-Fassungen und kleinen App-Symbole neu.
 
 ## Veröffentlichen
 

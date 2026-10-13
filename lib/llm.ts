@@ -2,6 +2,7 @@
 // Beides entsteht aus denselben Wörterbüchern wie die Seite und ist daher nie veraltet.
 import {
   absolute,
+  appStoreUrl,
   dictionary,
   fallbackLanguage,
   languageName,
@@ -23,6 +24,8 @@ export function homeMarkdown(lang: Language): string {
   out.push(`## ${t.facts.title}`, "");
   for (const item of t.facts.items) out.push(`- ${item}`);
   out.push(`- ${t.facts.languages}: ${languages.map((l) => languageName(l, lang)).join(", ")}`);
+  const store = appStoreUrl(lang);
+  if (store) out.push(`- ${t.footer.appStore}: ${store}`);
   out.push(`- ${t.footer.privacy}: ${absolute(paths.privacy(lang))}`);
   out.push(`- ${t.footer.contact}: ${site.email}`, "");
 
@@ -73,7 +76,10 @@ export function llmsTxt(): string {
     "",
   );
   for (const item of en.facts.items) out.push(`- ${item}`);
-  out.push(`- ${en.facts.languages}: ${languages.map((l) => languageName(l, fallbackLanguage)).join(", ")}`, "");
+  out.push(`- ${en.facts.languages}: ${languages.map((l) => languageName(l, fallbackLanguage)).join(", ")}`);
+  const store = appStoreUrl(fallbackLanguage);
+  if (store) out.push(`- App Store: ${store}`);
+  out.push("");
 
   out.push("## Pages", "");
   for (const l of languages) {

@@ -1,5 +1,5 @@
 // Strukturierte Daten (schema.org, JSON-LD) – für Suchmaschinen und KI-Antworten.
-import { absolute, dictionary, image, languages, paths, site, type Language } from "@/i18n/config";
+import { absolute, appStoreUrl, dictionary, image, languages, paths, site, type Language } from "@/i18n/config";
 import { plain } from "./text";
 
 const ids = {
@@ -24,8 +24,15 @@ function website() {
   };
 }
 
+/**
+ * Die App als MobileApplication – nur mit Bewertung aus dem App Store. Ohne sie wertet
+ * Google die Angabe als unvollständig und meldet sie in der Search Console als Fehler.
+ */
 function app(lang: Language) {
   const t = dictionary(lang);
+  const rating = site.appStoreRating;
+  const store = appStoreUrl(lang);
+  if (!rating || !store) return null;
   return {
     "@type": "MobileApplication",
     "@id": ids.app,
@@ -44,19 +51,23 @@ function app(lang: Language) {
     featureList: [...t.features.rows.map((r) => r.title), ...t.details.tiles.map((tile) => tile.title)],
     author: { "@id": ids.developer },
     publisher: { "@id": ids.developer },
-    ...(site.appStoreId ? { installUrl: `https://apps.apple.com/app/id${site.appStoreId}` } : {}),
+    installUrl: store,
+    downloadUrl: store,
+    aggregateRating: { "@type": "AggregateRating", ratingValue: rating.ratingValue, ratingCount: rating.ratingCount, bestRating: 5, worstRating: 1 },
   };
 }
 
 export function homeData(lang: Language) {
   const t = dictionary(lang);
   const url = absolute(paths.home(lang));
+  const application = app(lang);
+  const store = appStoreUrl(lang);
   return {
     "@context": "https://schema.org",
     "@graph": [
       website(),
       developer(),
-      app(lang),
+      ...(application ? [application] : []),
       {
         "@type": "WebPage",
         "@id": `${url}#webpage`,
@@ -65,7 +76,8 @@ export function homeData(lang: Language) {
         description: t.meta.description,
         inLanguage: lang.hreflang,
         isPartOf: { "@id": ids.website },
-        about: { "@id": ids.app },
+        ...(application ? { about: { "@id": ids.app } } : {}),
+        ...(store ? { relatedLink: store } : {}),
         primaryImageOfPage: absolute(image(lang, "og.jpg")),
       },
       {
@@ -98,7 +110,6 @@ export function privacyData(lang: Language) {
         description: t.privacyPage.description,
         inLanguage: lang.hreflang,
         isPartOf: { "@id": ids.website },
-        about: { "@id": ids.app },
         breadcrumb: { "@id": `${url}#breadcrumb` },
       },
       {

@@ -1,5 +1,7 @@
 // Alle dürfen die Seite lesen – Suchmaschinen und KI-Dienste, für Suche, Antworten und Training.
-// Die KI-Crawler stehen einzeln da, damit die Absicht auch für sie eindeutig ist.
+// Die KI-Crawler stehen einzeln da, damit die Absicht auch für sie eindeutig ist. Bewusst ohne
+// „Content-Signal“: Google und Lighthouse kennen die Zeile nicht und melden sie als Fehler, und
+// ohne Einschränkung ist ohnehin alles erlaubt.
 import { absolute } from "@/i18n/config";
 
 export const dynamic = "force-static";
@@ -12,19 +14,15 @@ const aiCrawlers = [
   "meta-externalagent", "Amazonbot", "DuckAssistBot", "MistralAI-User", "CCBot",
 ];
 
-const signals = "Content-Signal: search=yes, ai-input=yes, ai-train=yes";
-
 export function GET() {
   const body = [
     "# monatskasse.de – everyone is welcome to read this site, including AI services",
-    "# (search, answers and training).",
+    "# for search, answers and training.",
     "",
     "User-agent: *",
-    signals,
     "Allow: /",
     "",
     ...aiCrawlers.map((name) => `User-agent: ${name}`),
-    signals,
     "Allow: /",
     "",
     `Sitemap: ${absolute("/sitemap.xml")}`,

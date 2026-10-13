@@ -6,7 +6,8 @@
   "developer": "Maximilian Ruhl",
   "email": "maxi.ruhl@hotmail.de",
   "minimumOS": "18.5",
-  "appStoreId": null,
+  "appStoreId": "6753881999",
+  "appStoreRating": null,
   "languages": [
     {
       "code": "de",
@@ -14,10 +15,15 @@
       "ogLocale": "de_DE",
       "name": "Deutsch",
       "appName": "Monatskasse",
+      "appStore": "de",
       "privacyPolicy": "de",
       "shareImage": {
         "headline": "Wie viel ist diesen Monat noch übrig?",
-        "pills": ["Kostenlos", "Ohne Konto", "Ohne Tracking"]
+        "pills": [
+          "Kostenlos",
+          "Ohne Konto",
+          "Ohne Tracking"
+        ]
       }
     },
     {
@@ -26,10 +32,15 @@
       "ogLocale": "en_US",
       "name": "English",
       "appName": "My Budget",
+      "appStore": "us",
       "privacyPolicy": "en",
       "shareImage": {
         "headline": "How much is left this month?",
-        "pills": ["Free", "No account", "No tracking"]
+        "pills": [
+          "Free",
+          "No account",
+          "No tracking"
+        ]
       }
     }
   ]

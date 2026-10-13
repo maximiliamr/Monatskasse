@@ -1,15 +1,18 @@
-import { languages, paths, type Language } from "@/i18n/config";
+import { appStoreUrl, languages, paths, type Language } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/types";
+import AppIcon from "./AppIcon";
 
 export default function Footer({ lang, t }: { lang: Language; t: Dictionary }) {
+  const store = appStoreUrl(lang);
   return (
     <footer>
       <div className="wrap">
         <div className="foot">
           <a className="brand" href="#top">
-            <img src="/bilder/icon.png" width="26" height="26" alt="" /> {lang.appName}
+            <AppIcon size={26} /> {lang.appName}
           </a>
           <div className="foot-links">
+            {store && <a href={store}>{t.footer.appStore}</a>}
             <a href={paths.privacy(lang)}>{t.footer.privacy}</a>
             <a href={`#${t.ids.help}`}>{t.footer.help}</a>
             <a href={`#${t.ids.contact}`}>{t.footer.contact}</a>
