@@ -213,6 +213,9 @@ section { padding: 104px 0; }
 .gstep.cards h3::before { content: "✓"; }
 .gstep p { margin: 0; color: var(--muted); }
 .gstep .warn { color: var(--orange); font-size: 0.95rem; }
+/* Bildschirmfotos der Kurzbefehle-App: hell aufgenommen, auch im Dunkelmodus hell */
+.gshot { display: block; margin-top: 6px; }
+.gshot img { display: block; width: 100%; max-width: 380px; height: auto; margin: 0 auto; border-radius: 18px; border: 1px solid var(--line); }
 /* Blau und Orange der Kurzbefehle in Tönen mit genug Kontrast (WCAG 4,5 : 1) */
 .mk { --mk-panel: #f2f2f7; --mk-row: #ffffff; --mk-text: #1c1c1e; --mk-sub: #6e6e73; --mk-link: #0066cc; --mk-fill: #0071e3; --mk-todo: #b45309;
       margin-top: 6px; background: var(--mk-panel); color: var(--mk-text); border-radius: 18px; padding: 12px; display: grid; gap: 7px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 0.86rem; }

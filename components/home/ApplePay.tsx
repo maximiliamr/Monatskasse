@@ -14,7 +14,14 @@ function Step({ step }: { step: GuideStep }) {
       <h3>{step.title}</h3>
       <p dangerouslySetInnerHTML={{ __html: step.text }} />
       {step.warn && <p className="warn" dangerouslySetInnerHTML={{ __html: step.warn }} />}
-      <div className="mk" aria-hidden="true" dangerouslySetInnerHTML={{ __html: step.mock }} />
+      {step.shot ? (
+        <picture className="gshot">
+          <source srcSet={`${step.shot.src}.avif`} type="image/avif" />
+          <img src={`${step.shot.src}.jpg`} width={step.shot.width} height={step.shot.height} alt="" loading="lazy" decoding="async" />
+        </picture>
+      ) : (
+        <div className="mk" aria-hidden="true" dangerouslySetInnerHTML={{ __html: step.mock }} />
+      )}
     </div>
   );
 }

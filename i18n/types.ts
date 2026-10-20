@@ -33,6 +33,9 @@ export interface GuideStep {
   text: Html;
   warn: Html | null;
   mock: Html;
+  /** Echtes Bildschirmfoto mit markierten Tipp-Stellen statt der nachgebauten
+   *  Ansicht – Pfad ohne Endung, es gibt .avif und .jpg. */
+  shot?: { src: string; width: number; height: number };
   /** Der Schlussschritt „Karten zuordnen“ mit Häkchen statt Nummer. */
   cards: boolean;
 }
